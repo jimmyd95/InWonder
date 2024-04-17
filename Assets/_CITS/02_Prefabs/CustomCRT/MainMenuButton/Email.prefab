@@ -386,9 +386,6 @@ GameObject:
   - component: {fileID: 1352109783168799839}
   - component: {fileID: 7880118325559456280}
   - component: {fileID: 2429303670427665540}
-  - component: {fileID: 4718208641071625493}
-  - component: {fileID: 303260836888899941}
-  - component: {fileID: 3226910774574158465}
   m_Layer: 0
   m_Name: Email
   m_TagString: Untagged
@@ -657,58 +654,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonSelected: 0
-  button: {fileID: 7880118325559456280}
---- !u!114 &4718208641071625493
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8999119468226655707}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1bb5261d7cd290b4eacc0fd20e2db09f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _interactableView: {fileID: 1352109783168799839}
-  _renderer: {fileID: 3600691583548146857}
-  _normalColor: {r: 0, g: 0, b: 0, a: 1}
-  _hoverColor: {r: 0, g: 0, b: 1, a: 1}
-  _selectColor: {r: 0, g: 1, b: 0, a: 1}
-  _disabledColor: {r: 1, g: 0, b: 0, a: 1}
---- !u!114 &303260836888899941
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8999119468226655707}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1bb5261d7cd290b4eacc0fd20e2db09f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _interactableView: {fileID: 1352109783168799839}
-  _renderer: {fileID: 3600691583548146857}
-  _normalColor: {r: 0, g: 0, b: 0, a: 1}
-  _hoverColor: {r: 0, g: 0, b: 1, a: 1}
-  _selectColor: {r: 0, g: 1, b: 0, a: 1}
-  _disabledColor: {r: 1, g: 0, b: 0, a: 1}
---- !u!114 &3226910774574158465
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8999119468226655707}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1bb5261d7cd290b4eacc0fd20e2db09f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _interactableView: {fileID: 1352109783168799839}
-  _renderer: {fileID: 3600691583548146857}
-  _normalColor: {r: 0, g: 0, b: 0, a: 1}
-  _hoverColor: {r: 0, g: 0, b: 1, a: 1}
-  _selectColor: {r: 0, g: 1, b: 0, a: 1}
-  _disabledColor: {r: 1, g: 0, b: 0, a: 1}
