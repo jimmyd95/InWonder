@@ -7846,6 +7846,7 @@ MonoBehaviour:
   RoomRemovedEvent:
     m_PersistentCalls:
       m_Calls: []
+  EnableWorldLock: 1
   SceneSettings:
     DataSource: 2
     RoomIndex: -1
@@ -11270,8 +11271,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isVR: 0
   _handsMaterial: {fileID: 2100000, guid: 5163220dd60cc674f834138a32a7319c, type: 2}
-  _occlusionController: {fileID: 28755545}
-  _depthTextureProvider: {fileID: 28755546}
 --- !u!114 &740666667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20769,14 +20768,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e76943ac7e7394f3e969f0c048b26639, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SpawnOnStart: 2
   MeshMaterial: {fileID: 2100000, guid: 4920fec2708aa02478a0b4465d6107b8, type: 2}
   BorderSize: 0.2
   Colliders: 1
+  CutHoles: 0
   castShadows: 1
   hideMesh: 0
   textureCoordinateModes:
-  - U: 0
-    V: 0
+  - WallU: 0
+    WallV: 0
+    AnchorUV: 0
   Labels: -1
 --- !u!114 &1378634220
 MonoBehaviour:
