@@ -10,7 +10,7 @@ public class MROcclusionControl : MonoBehaviour
     // [SerializeField] private EnvironmentDepthOcclusionController _occlusionController;
     // [SerializeField] private EnvironmentDepthTextureProvider _depthTextureProvider;
     // private int currentOcclusionTypeIndex = (int)OcclusionType.NoOcclusion;
-    private bool depthOn = false;
+    // private bool depthOn = false;
 
     private void Start() {
         // this should make all the objects depth occluded in MR environment 

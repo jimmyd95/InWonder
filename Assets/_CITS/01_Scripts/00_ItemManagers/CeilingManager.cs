@@ -45,17 +45,13 @@ public class CeilingManager : MonoBehaviour
         ovrRoom = tempCeiling?.GetComponentInParent<OVRSceneRoom>();
         // Debug.Log("tempCeiling: " + tempCeiling.name + " mruk: " + mruk + " ovrRoom: " + ovrRoom);
 
-        if (mrukroom) // This is for MRUK
+        if (tempCeiling) // This is for MRUK
         {
-            mrukroom.gameObject.layer = LayerMask.NameToLayer("Wall");
-            mrukroom.gameObject.tag = "MainStructure";
             // MRUKRoom mrukComponent = FindObjectOfType<MRUKRoom>();
             // mrukComponent.GetCeilingAnchor();
             // MRUKAnchor[] mrukAnchors = FindObjectsOfType<MRUKAnchor>();
             // var mrukCeiling = mrukAnchors.Where(x => x.name.Contains("CEILING")).FirstOrDefault().gameObject;
             // var tempCeiling = GameObject.Find("CEILING");
-            tempCeiling.layer = LayerMask.NameToLayer("Wall");
-            tempCeiling.tag = "Ceiling";
             // ceilingSpawnPoint.transform.position = new Vector3(ceilingSpawnPoint.transform.position.x, tempCeiling.transform.position.y, ceilingSpawnPoint.transform.position.z);
             ceilingObject = Instantiate(_ceilingSpawnPoint, tempCeiling.transform.position, Quaternion.identity);
             // ceilingObject.transform.position = GameObject.Find("CEILING").transform.position;
@@ -94,8 +90,8 @@ public class CeilingManager : MonoBehaviour
 
     [Button ("Randomize Ceiling Position")]
     public void randomizeCeilingPosition(){
-
-        if (mrukroom)
+        var tempCeiling = _roomThingamajigApplier.getCeiling();
+        if (tempCeiling)
         {
             Destroy(GameObject.FindGameObjectWithTag("SpawnPoint"));
             ceilingObject.GetComponent<FindSpawnPositions>().StartSpawn();

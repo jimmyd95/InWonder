@@ -59,6 +59,9 @@ public class SpawningAndVFX : MonoBehaviour
     public void SpawnKeyItem(GameObject item, Quaternion rotation){
         keyItems.Add(SpawnItem(item, rotation));
     }
+    public void SpawnKeyItem(GameObject item, Vector3 position, Quaternion rotation){
+        keyItems.Add(SpawnItem(item, position, rotation));
+    }
 
     public GameObject SpawnItem(GameObject item, Quaternion rotation){
         _ceilingSpawn.randomizeCeilingPosition();
