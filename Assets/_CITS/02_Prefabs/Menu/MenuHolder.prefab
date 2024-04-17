@@ -2542,7 +2542,7 @@ PrefabInstance:
     - target: {fileID: 3065917921544355336, guid: 4f37d8526f1c1884898c2106296a18c3,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4078033464467187433, guid: 4f37d8526f1c1884898c2106296a18c3,
         type: 3}
@@ -2652,10 +2652,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 286f220c3d610e746a08ba790c0fa3e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isVR: 0
-  _handsMaterial: {fileID: 2100000, guid: 5163220dd60cc674f834138a32a7319c, type: 2}
-  _occlusionController: {fileID: 0}
-  _depthTextureProvider: {fileID: 0}
 --- !u!1001 &5729219768003908013
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2732,7 +2728,7 @@ PrefabInstance:
     - target: {fileID: 3065917921544355336, guid: 4f37d8526f1c1884898c2106296a18c3,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4078033464467187433, guid: 4f37d8526f1c1884898c2106296a18c3,
         type: 3}
@@ -2842,10 +2838,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 286f220c3d610e746a08ba790c0fa3e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isVR: 0
-  _handsMaterial: {fileID: 2100000, guid: 5163220dd60cc674f834138a32a7319c, type: 2}
-  _occlusionController: {fileID: 0}
-  _depthTextureProvider: {fileID: 0}
 --- !u!1001 &6387275384664462990
 PrefabInstance:
   m_ObjectHideFlags: 0
