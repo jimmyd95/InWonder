@@ -12029,7 +12029,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isVR: 0
-  _handsMaterial: {fileID: 0}
+  _handsMaterial: {fileID: 2100000, guid: 0011f248581704c409a9cb2c081352ad, type: 2}
 --- !u!1 &765866367
 GameObject:
   m_ObjectHideFlags: 0
