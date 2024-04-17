@@ -11774,6 +11774,7 @@ MonoBehaviour:
   _skyboxes: {fileID: 2100000, guid: f5e0932c97e579a47967b8b2d9207ac4, type: 2}
   _floor: {fileID: 1865867354}
   _VRfloor: {fileID: 2100000, guid: a384b583426023d4da68d3f25e868451, type: 2}
+  _occlusionControl: {fileID: 0}
   _mrMaterial: {fileID: 2100000, guid: 4920fec2708aa02478a0b4465d6107b8, type: 2}
   _vrMaterial: {fileID: 2100000, guid: 024004f9c767b8b41aaf380e1cce502d, type: 2}
   _customRoomboxMaterial: {fileID: 2100000, guid: 459f918a79279cb48b79da01631a9791,
@@ -11796,6 +11797,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 286f220c3d610e746a08ba790c0fa3e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isVR: 0
+  _handsMaterial: {fileID: 0}
 --- !u!1 &765866367
 GameObject:
   m_ObjectHideFlags: 0
@@ -15009,7 +15012,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
+  m_StaticShadowCaster: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -15018,7 +15021,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d5e2ab92e53f69e40a760f658d55cb3d, type: 2}
+  - {fileID: 2100000, guid: 5163220dd60cc674f834138a32a7319c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -24739,7 +24742,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d641a50c4fe4ee3489a64cf52b76ae79, type: 2}
+  - {fileID: 2100000, guid: 0011f248581704c409a9cb2c081352ad, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -25793,6 +25796,21 @@ PrefabInstance:
       propertyPath: Colliders
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2296141232796561049, guid: cee191920b8eb41b0960b1082a393a3e,
+        type: 3}
+      propertyPath: BorderSize
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2296141232796561049, guid: cee191920b8eb41b0960b1082a393a3e,
+        type: 3}
+      propertyPath: castShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2296141232796561049, guid: cee191920b8eb41b0960b1082a393a3e,
+        type: 3}
+      propertyPath: MeshMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 1513d3690aecf8b4eae68377e2a448a7, type: 2}
     - target: {fileID: 5456522116536683058, guid: cee191920b8eb41b0960b1082a393a3e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -32380,7 +32398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a07d5d10251915478347131c5a6ebe8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _volumePrefab: {fileID: 8013016026686888416, guid: 2d6ac3b9dfc2b44458e32bd44afc2cfa,
+  _volumePrefab: {fileID: 8013016026686888416, guid: 4d6adb504a5d4764db23174d08fb1bd5,
     type: 3}
 --- !u!114 &2013281918
 MonoBehaviour:
@@ -33632,7 +33650,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d641a50c4fe4ee3489a64cf52b76ae79, type: 2}
+  - {fileID: 2100000, guid: 0011f248581704c409a9cb2c081352ad, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

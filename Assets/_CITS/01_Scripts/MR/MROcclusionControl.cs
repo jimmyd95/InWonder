@@ -5,19 +5,19 @@ using Sirenix.OdinInspector;
 
 public class MROcclusionControl : MonoBehaviour
 {
-    // public bool isVR = false;
-    // [SerializeField] private Material _handsMaterial;
+    public bool isVR = false;
+    [SerializeField] private Material _handsMaterial;
     // [SerializeField] private EnvironmentDepthOcclusionController _occlusionController;
     // [SerializeField] private EnvironmentDepthTextureProvider _depthTextureProvider;
     // private int currentOcclusionTypeIndex = (int)OcclusionType.NoOcclusion;
-    // private bool depthOn = false;
+    private bool depthOn = false;
 
-    // private void Start() {
-    //     // this should make all the objects depth occluded in MR environment 
-    //     // occlusionController.EnableOcclusionType((OcclusionType)CurrentOcclusionTypeIndex);
-    //     // _depthTextureProvider.RemoveHands(true);
-    //     ToggleHands(); // just to make sure that even if the game setting has changed, it starts off having the toggle hands correctly
-    // }
+    private void Start() {
+        // this should make all the objects depth occluded in MR environment 
+        // occlusionController.EnableOcclusionType((OcclusionType)CurrentOcclusionTypeIndex);
+        // _depthTextureProvider.RemoveHands(true);
+        ToggleHands(); // just to make sure that even if the game setting has changed, it starts off having the toggle hands correctly
+    }
 
     // [Button("SwitchOcclusionType")]
     // public void SwitchDepthOcclusionType()
@@ -42,20 +42,20 @@ public class MROcclusionControl : MonoBehaviour
     //     _occlusionController.EnableOcclusionType((OcclusionType)currentOcclusionTypeIndex);
     // }
 
-    // [Button("ToggleHands")]
-    // public void ToggleHands()
-    // {
-    //     if (isVR)
-    //     {
-    //         _handsMaterial.renderQueue = 3000;
-    //         _handsMaterial.SetFloat("_OutlineOpacity", 0.6f); // find the Outline of the hands and change the alpha
-    //         _handsMaterial.SetFloat("_Opacity", 0.4f);
-    //     }else{
-    //         _handsMaterial.renderQueue = 1000;
-    //         _handsMaterial.SetFloat("_OutlineOpacity", 0f);
-    //         _handsMaterial.SetFloat("_Opacity", 0f);
-    //     }
-    // }
+    [Button("ToggleHands")]
+    public void ToggleHands()
+    {
+        if (isVR)
+        {
+            _handsMaterial.renderQueue = 3000;
+            _handsMaterial.SetFloat("_OutlineOpacity", 0.6f); // find the Outline of the hands and change the alpha
+            _handsMaterial.SetFloat("_Opacity", 0.4f);
+        }else{
+            _handsMaterial.renderQueue = 1000;
+            _handsMaterial.SetFloat("_OutlineOpacity", 0f);
+            _handsMaterial.SetFloat("_Opacity", 0f);
+        }
+    }
 
     // enable experimental features for DepthAPI
     // currently in order to run this, you kinda need to run every restart cycle

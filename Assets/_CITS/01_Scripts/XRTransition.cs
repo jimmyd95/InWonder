@@ -8,7 +8,7 @@ public class XRTransition : MonoBehaviour
     [SerializeField] private Material _skyboxes;
     [SerializeField] private GameObject _floor;
     [SerializeField] private Material _VRfloor;
-    // [SerializeField] private MROcclusionControl _occlusionControl;
+    [SerializeField] private MROcclusionControl _occlusionControl;
     [SerializeField] private Material _mrMaterial;
     [SerializeField] private Material _vrMaterial;
     [SerializeField] private Material _customRoomboxMaterial;
@@ -52,10 +52,10 @@ public class XRTransition : MonoBehaviour
         tempColour.a = 0;
         Camera.main.backgroundColor = tempColour;
 
-        // // make virtual hands invisible
-        // _occlusionControl.isVR = false;
-        // // _occlusionControl.SwitchDepthOcclusionType(); // this should turn off the virtual hands
-        // _occlusionControl.ToggleHands();
+        // make virtual hands invisible
+        _occlusionControl.isVR = false;
+        // _occlusionControl.SwitchDepthOcclusionType(); // this should turn off the virtual hands
+        _occlusionControl.ToggleHands();
 
         if (_portalVFX.spanwedToys.Count == 0)
         {
@@ -110,9 +110,9 @@ public class XRTransition : MonoBehaviour
         _floor.GetComponent<MeshRenderer>().material = _VRfloor;
         Camera.main.clearFlags = CameraClearFlags.Skybox;
 
-        // _occlusionControl.isVR = true; // This should turn on the virtual hands
-        // // _occlusionControl.SwitchDepthOcclusionType(); // this turns off the depth occlusion
-        // _occlusionControl.ToggleHands();
+        _occlusionControl.isVR = true; // This should turn on the virtual hands
+        // _occlusionControl.SwitchDepthOcclusionType(); // this turns off the depth occlusion
+        _occlusionControl.ToggleHands();
 
         if (_portalVFX.spanwedToys.Count == 0)
         {

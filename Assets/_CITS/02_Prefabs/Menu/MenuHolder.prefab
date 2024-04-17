@@ -2652,6 +2652,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 286f220c3d610e746a08ba790c0fa3e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isVR: 0
+  _handsMaterial: {fileID: 0}
 --- !u!1001 &5729219768003908013
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2838,6 +2840,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 286f220c3d610e746a08ba790c0fa3e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isVR: 0
+  _handsMaterial: {fileID: 0}
 --- !u!1001 &6387275384664462990
 PrefabInstance:
   m_ObjectHideFlags: 0

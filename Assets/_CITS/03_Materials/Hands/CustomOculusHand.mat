@@ -115,7 +115,7 @@ Material:
     - _OcclusionStrength: 1
     - _Opacity: 0
     - _OutlineOpacity: 0
-    - _OutlineWidth: 0.002
+    - _OutlineWidth: 0.00136
     - _Parallax: 0.005
     - _PinkyGlowValue: 0
     - _QueueOffset: 0
@@ -135,7 +135,7 @@ Material:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _ColorBottom: {r: 0.12156857, g: 0.12549016, b: 0.12941167, a: 1}
-    - _ColorTop: {r: 0.5411765, g: 0.7137255, b: 0.8000001, a: 1}
+    - _ColorTop: {r: 0.5411765, g: 0.7137255, b: 0.8000001, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _GlowColor: {r: 1, g: 1, b: 1, a: 1}
     - _OutlineColor: {r: 0.32156864, g: 0.58431375, b: 0.7176471, a: 1}
