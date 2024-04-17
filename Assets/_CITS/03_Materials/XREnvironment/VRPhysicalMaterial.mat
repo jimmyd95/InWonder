@@ -8,25 +8,17 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: VRPhysicalMaterial
-  m_Shader: {fileID: 0}
+  m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
-  m_InvalidKeywords:
-  - DR_GRADIENT_ON
-  - DR_RIM_ON
-  - DR_SPECULAR_ON
-  - _CELPRIMARYMODE_CURVE
-  - _DETAILMAPBLENDINGMODE_MULTIPLY
-  - _GRADIENTSPACE_WORLD
-  - _OUTLINESPACE_SCREEN
-  - _TEXTUREBLENDINGMODE_MULTIPLY
-  - _UNITYSHADOWMODE_MULTIPLY
+  m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 1
   m_CustomRenderQueue: -1
-  stringTagMap: {}
+  stringTagMap:
+    RenderType: Opaque
   disabledShaderPasses:
   - SRPDEFAULTUNLIT
   m_LockedProperties: 
@@ -183,8 +175,8 @@ Material:
     - _ZTest: 4
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 1, g: 0.26371288, b: 0, a: 1}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _BaseColor: {r: 0, g: 0.5098039, b: 0.509434, a: 0.78431374}
+    - _Color: {r: 0, g: 0.5098038, b: 0.509434, a: 0.78431374}
     - _ColorDim: {r: 0.3962264, g: 0.20745817, b: 0.20745817, a: 1}
     - _ColorDimCurve: {r: 0.58904535, g: 0.77254903, b: 0.10588228, a: 1}
     - _ColorDimExtra: {r: 0.8225136, g: 0, b: 1, a: 1}

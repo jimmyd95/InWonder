@@ -340,8 +340,6 @@ GameObject:
   - component: {fileID: 6382081945717261572}
   - component: {fileID: 2813008989245563715}
   - component: {fileID: 7774483757831476703}
-  - component: {fileID: 804012219555816526}
-  - component: {fileID: 5649619529836191806}
   m_Layer: 0
   m_Name: EmailListExample
   m_TagString: Untagged
@@ -574,43 +572,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonSelected: 0
-  button: {fileID: 2813008989245563715}
---- !u!114 &804012219555816526
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3941026128973636736}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1bb5261d7cd290b4eacc0fd20e2db09f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _interactableView: {fileID: 6382081945717261572}
-  _renderer: {fileID: 8910975437221549554}
-  _normalColor: {r: 0, g: 0, b: 0, a: 1}
-  _hoverColor: {r: 0, g: 0, b: 1, a: 1}
-  _selectColor: {r: 0, g: 1, b: 0, a: 1}
-  _disabledColor: {r: 1, g: 0, b: 0, a: 1}
---- !u!114 &5649619529836191806
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3941026128973636736}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1bb5261d7cd290b4eacc0fd20e2db09f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _interactableView: {fileID: 6382081945717261572}
-  _renderer: {fileID: 8910975437221549554}
-  _normalColor: {r: 0, g: 0, b: 0, a: 1}
-  _hoverColor: {r: 0, g: 0, b: 1, a: 1}
-  _selectColor: {r: 0, g: 1, b: 0, a: 1}
-  _disabledColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &5660574124481489967
 GameObject:
   m_ObjectHideFlags: 0
