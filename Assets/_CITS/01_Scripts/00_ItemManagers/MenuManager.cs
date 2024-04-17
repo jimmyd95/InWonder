@@ -5,7 +5,6 @@ public class MenuManager : MonoBehaviour
 {
 
     // [SerializeField] private InteractableUnityEventWrapper _button = new InteractableUnityEventWrapper();
-    [SerializeField] private XRPortal _spawnningManager;
     private OpeningProceedure openingProceedure;
     private ToyPortal portalVFX;
     private XRPortal xrportal;

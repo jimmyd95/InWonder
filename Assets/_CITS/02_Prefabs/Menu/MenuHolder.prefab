@@ -2653,7 +2653,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isVR: 0
-  _handsMaterial: {fileID: 0}
+  _handsMaterial: {fileID: 2100000, guid: 5163220dd60cc674f834138a32a7319c, type: 2}
   _occlusionController: {fileID: 0}
   _depthTextureProvider: {fileID: 0}
 --- !u!1001 &5729219768003908013
@@ -2843,7 +2843,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isVR: 0
-  _handsMaterial: {fileID: 0}
+  _handsMaterial: {fileID: 2100000, guid: 5163220dd60cc674f834138a32a7319c, type: 2}
   _occlusionController: {fileID: 0}
   _depthTextureProvider: {fileID: 0}
 --- !u!1001 &6387275384664462990
