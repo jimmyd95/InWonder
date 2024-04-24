@@ -8,16 +8,19 @@ public class RoomThingamajigApplier : MonoBehaviour
     private GameObject ceiling;
 
     private void Start() {
-        while(floor == null && ceiling == null)
-            GetRoomObjectAndApplyIDs();
+        // forcing a loop to find the room objects
+        GetRoomObjectAndApplyIDs();
     }
     
     // find the MRUKRoom object and apply the necessary tags and layers
     public void GetRoomObjectAndApplyIDs(){
 
-        floor = GameObject.Find("FLOOR");
+        while (floor == null)
+            floor = GameObject.Find("FLOOR");
+
         // var floor = mrukComponent.GetRoomOutline();
-        ceiling = GameObject.Find("CEILING");
+        while (ceiling == null)
+            ceiling = GameObject.Find("CEILING");
 
         GameObject mrukObj = GameObject.FindObjectOfType<MRUKRoom>().gameObject;
         // assign the mrukObj as the MRUKRoom script gameobject, so I won't be able to temper with the "found script object" directly
