@@ -8,13 +8,13 @@ public class RoomThingamajigApplier : MonoBehaviour
     private GameObject ceiling;
 
     private void Start() {
-        // forcing a loop to find the room objects
         GetRoomObjectAndApplyIDs();
     }
     
     // find the MRUKRoom object and apply the necessary tags and layers
     public void GetRoomObjectAndApplyIDs(){
 
+        // forcing a loop to find the room objects
         while (floor == null)
             floor = GameObject.Find("FLOOR");
 
