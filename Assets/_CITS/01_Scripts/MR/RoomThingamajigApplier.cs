@@ -6,6 +6,11 @@ public class RoomThingamajigApplier : MonoBehaviour
 {
     private GameObject floor;
     private GameObject ceiling;
+
+    private void Start() {
+        while(floor == null && ceiling == null)
+            GetRoomObjectAndApplyIDs();
+    }
     
     // find the MRUKRoom object and apply the necessary tags and layers
     public void GetRoomObjectAndApplyIDs(){
