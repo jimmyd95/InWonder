@@ -97,7 +97,7 @@ public class OpeningProceedure : MonoBehaviour
 
         // openingMusic = GameObject.FindGameObjectWithTag("Music").GetComponent<AudioSource>();
 
-        while (openingMusic.volume < 0.5f)
+        while (openingMusic.volume < 0.3f)
         {
             openingMusic.volume += 0.05f;
             yield return new WaitForSecondsRealtime(0.1f);

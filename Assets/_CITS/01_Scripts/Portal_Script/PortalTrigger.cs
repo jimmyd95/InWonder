@@ -11,8 +11,8 @@ public class PortalTrigger : MonoBehaviour
     private bool inVR = false;
 
     private void Start() {
-        _XRTransition = GameObject.FindGameObjectWithTag("MRManager").GetComponent<XRTransition>();
-        _XRPortal = GameObject.FindGameObjectWithTag("XRPortal").GetComponent<XRPortal>();
+        _XRTransition = GameObject.FindGameObjectWithTag("XRManager").GetComponent<XRTransition>();
+        _XRPortal = GameObject.FindGameObjectWithTag("Portal").GetComponent<XRPortal>();
     }
 
     // detects if the player has entered the trigger, play music too if it's the first time, or just trigger the skybox/VR change if not

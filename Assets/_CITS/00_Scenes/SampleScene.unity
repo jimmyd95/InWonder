@@ -21440,20 +21440,23 @@ MonoBehaviour:
   _toys:
   - {fileID: 4619956161973356290, guid: 382c8ba0d9f5c2c4c867e2c593526904, type: 3}
   - {fileID: 5594152767557324163, guid: 0c42ea72663ed74469eb4152bb85b0c9, type: 3}
+  - {fileID: 8820667472227086419, guid: 2d1749b59db99264da0765d14463b86f, type: 3}
   - {fileID: 4444633789982077843, guid: 72a758f0d98609b46859a6fe0b89c03c, type: 3}
   - {fileID: 8955626832469965899, guid: 2f7e4e9e8ee5fe14889a9099e5d2e466, type: 3}
   - {fileID: 4658795278346041799, guid: 110bf58732b9e9441be3709a3fcb14b5, type: 3}
   - {fileID: 2277080546579879882, guid: 7972f534271f54a409ad8abf0708affe, type: 3}
   - {fileID: 2000419053150364643, guid: 1297b3eb104f83b44ae959e929a716ec, type: 3}
   - {fileID: 7195028052050622299, guid: a7a2cde682635d5418e90fe75fd175b6, type: 3}
+  - {fileID: 8820667472227086419, guid: 2d1749b59db99264da0765d14463b86f, type: 3}
   - {fileID: 7994940461738476649, guid: 5a1cf63e25d341141a4490d9498ef3c2, type: 3}
   - {fileID: 8714274201796468159, guid: 8b40e3711b1349349a3a6eb43aff0a64, type: 3}
   - {fileID: 8176756818984673342, guid: 5dee8c57e4bf90a49b8d8525fd642f61, type: 3}
   - {fileID: 1692905729980330828, guid: e7323d606c43b9d4bb0881e97291dac8, type: 3}
   - {fileID: 417080432193709734, guid: 48f0d83683c6234449cf4b6331b00b16, type: 3}
-  - {fileID: 3931454630195564038, guid: 258eefbf7bc029447ae44e75efc9d0e5, type: 3}
   - {fileID: 2685241187905382690, guid: 434e77dcbaaa09e4eb505ad49ba50a2a, type: 3}
+  - {fileID: 3931454630195564038, guid: 258eefbf7bc029447ae44e75efc9d0e5, type: 3}
   - {fileID: 801088072414767554, guid: 3ba5430e0c5975f4183acc6aa13e11f6, type: 3}
+  - {fileID: 8820667472227086419, guid: 2d1749b59db99264da0765d14463b86f, type: 3}
   - {fileID: 60147685532626487, guid: f18df8ba43525584888169695e27e7e8, type: 3}
   - {fileID: 8426560379995854205, guid: 123493d00e7f993448424742a533bcf0, type: 3}
   _spawningAndVFX: {fileID: 1540288084}
@@ -34622,6 +34625,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RestButton
       objectReference: {fileID: 0}
+    - target: {fileID: 1081405177859372107, guid: 156e3f3baacc0f44c84f8b715196c853,
+        type: 3}
+      propertyPath: m_ProbeAnchor
+      value: 
+      objectReference: {fileID: 383591692}
     - target: {fileID: 1248943132832620259, guid: 156e3f3baacc0f44c84f8b715196c853,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -1,4 +1,6 @@
+using TMPro;
 using UnityEngine;
+using System.Collections;
 using Sirenix.OdinInspector;
 
 public class CRTControls : MonoBehaviour
@@ -26,33 +28,59 @@ public class CRTControls : MonoBehaviour
 
     [Button("Coin Toss")]
     public void CoinToss(){
-        // if(Random.Range(0, 3) == 1){
-        //     _wonderScreen.SetActive(true);
-        //     _mainMenuScreen.SetActive(false);
-        //     Debug.Log("Portal Chances Reached");
-        // }else
-        // {
-        // }
-        if (menu == null)
+        if(Random.Range(0, 3) == 1){
+            _wonderScreen.SetActive(true);
+            _mainMenuScreen.SetActive(false);
+            Debug.Log("Portal Chances Reached");
+        }else
         {
-            spawningAndVFX.SpawnMenu();
-            menu = spawningAndVFX.keyItems[spawningAndVFX.keyItems.Count - 1]; // get the last item from keyItems, that's should be menu
-        }
-        else
-        {
-            // CRT's center point is on the left of the entire model, hence position + 0.25f makes the menu spawn on top of the CRT model
-            menu.transform.position = new Vector3(_CRTScreen.transform.position.x + 0.25f, _CRTScreen.transform.position.y + 0.25f, Camera.main.transform.position.z);
+            if (menu == null)
+            {
+                spawningAndVFX.SpawnMenu();
+                menu = spawningAndVFX.keyItems[spawningAndVFX.keyItems.Count - 1]; // get the last item from keyItems, that's should be menu
+            }
+            else
+            {
+                // CRT's center point is on the left of the entire model, hence position + 0.25f makes the menu spawn on top of the CRT model
+                menu.transform.position = new Vector3(_CRTScreen.transform.position.x + 0.25f, _CRTScreen.transform.position.y + 0.25f, Camera.main.transform.position.z);
+            }
         }
     }
 
-    // [Button("Summon Portal")]
-    // public void OnSummonPortal()
-    // {
-    //     xrportal = GameObject.Find("XRPortal").GetComponent<XRPortal>(); // since I'm destorying the portal everytime I call it, it will have to be "found" every time
-    //     xrportal.SpawnPortal();
-    //     Debug.Log("Portal Summoned");
-    //     _wonderScreen.SetActive(false);
-    //     _mainMenuScreen.SetActive(true);
-    // }
+    // instead of finding the portal, I am going to use the bolt and use it to summon the portal
+    [Button("Summon Portal")]
+    public void OnSummonPortal()
+    {
+        // xrportal = GameObject.Find("XRPortal").GetComponent<XRPortal>(); // since I'm destorying the portal everytime I call it, it will have to be "found" every time
+        // xrportal.SpawnPortal();
+
+        var bolt = GameObject.FindWithTag("Bolt");
+        if (bolt == null)
+        {
+            StartCoroutine(wonderNotFound());
+        }
+        else
+        {
+            var portal = GameObject.FindObjectOfType<XRPortal>();
+            portal.SpawnPortal(bolt.transform.position);
+            Debug.Log("Portal Summoned");
+            _wonderScreen.SetActive(false);
+            _mainMenuScreen.SetActive(true);
+        }
+        
+    }
+
+    IEnumerator wonderNotFound(){
+        var wonderText = _wonderScreen.transform.GetChild(0).GetChild(1).GetChild(0).GetChild(0).GetComponent<TextMeshPro>();
+        wonderText.text = "Find the Orb!";
+        // shrink the font of the wonderText 
+        wonderText.fontSize = wonderText.fontSize / 1.4f;
+        yield return new WaitForSecondsRealtime(2f);
+        wonderText.text = "Portal me";
+
+        Debug.Log("Portal Summoned");
+        _wonderScreen.SetActive(false);
+        _mainMenuScreen.SetActive(true);
+    }
 
 }
