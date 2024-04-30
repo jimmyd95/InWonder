@@ -160,7 +160,10 @@ VisualEffect:
     m_Gradient:
       m_Array: []
     m_NamedObject:
-      m_Array: []
+      m_Array:
+      - m_Value: {fileID: 0}
+        m_Name: Mesh
+        m_Overridden: 1
     m_Bool:
       m_Array: []
 --- !u!73398921 &9036994982710952735
@@ -202,7 +205,7 @@ VFXRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
 --- !u!1 &582106834716151618
 GameObject:
   m_ObjectHideFlags: 0
@@ -364,8 +367,7 @@ VisualEffect:
       m_Array: []
     m_NamedObject:
       m_Array:
-      - m_Value: {fileID: 3196275534311496140, guid: b313166d3d17183478be64020a842044,
-          type: 3}
+      - m_Value: {fileID: 0}
         m_Name: Mesh
         m_Overridden: 1
     m_Bool:
@@ -409,7 +411,7 @@ VFXRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
 --- !u!1 &1887645017947106853
 GameObject:
   m_ObjectHideFlags: 0
@@ -611,8 +613,7 @@ VisualEffect:
       m_Array: []
     m_NamedObject:
       m_Array:
-      - m_Value: {fileID: 3754606625919671714, guid: b313166d3d17183478be64020a842044,
-          type: 3}
+      - m_Value: {fileID: 0}
         m_Name: Mesh
         m_Overridden: 1
     m_Bool:
@@ -656,7 +657,7 @@ VFXRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
 --- !u!1 &3125801039225090244
 GameObject:
   m_ObjectHideFlags: 0
@@ -818,8 +819,7 @@ VisualEffect:
       m_Array: []
     m_NamedObject:
       m_Array:
-      - m_Value: {fileID: 3951959426946185896, guid: b313166d3d17183478be64020a842044,
-          type: 3}
+      - m_Value: {fileID: 0}
         m_Name: Mesh
         m_Overridden: 1
     m_Bool:
@@ -842,7 +842,7 @@ VFXRenderer:
   m_ReflectionProbeUsage: 0
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 4294967295
+  m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -863,7 +863,7 @@ VFXRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
 --- !u!1 &3156424735288217497
 GameObject:
   m_ObjectHideFlags: 0
@@ -1025,8 +1025,7 @@ VisualEffect:
       m_Array: []
     m_NamedObject:
       m_Array:
-      - m_Value: {fileID: 8285219802299347259, guid: b313166d3d17183478be64020a842044,
-          type: 3}
+      - m_Value: {fileID: 0}
         m_Name: Mesh
         m_Overridden: 1
     m_Bool:
@@ -1070,7 +1069,7 @@ VFXRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
 --- !u!1 &3825470097506829187
 GameObject:
   m_ObjectHideFlags: 0
@@ -1232,8 +1231,7 @@ VisualEffect:
       m_Array: []
     m_NamedObject:
       m_Array:
-      - m_Value: {fileID: 6341685721058158667, guid: b313166d3d17183478be64020a842044,
-          type: 3}
+      - m_Value: {fileID: 0}
         m_Name: Mesh
         m_Overridden: 1
     m_Bool:
@@ -1277,7 +1275,7 @@ VFXRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
 --- !u!1 &4811711786472626103
 GameObject:
   m_ObjectHideFlags: 0
@@ -1664,8 +1662,7 @@ VisualEffect:
       m_Array: []
     m_NamedObject:
       m_Array:
-      - m_Value: {fileID: -7143286386921366075, guid: b313166d3d17183478be64020a842044,
-          type: 3}
+      - m_Value: {fileID: 0}
         m_Name: Mesh
         m_Overridden: 1
     m_Bool:
@@ -1709,7 +1706,7 @@ VFXRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
 --- !u!1 &8626057766303093001
 GameObject:
   m_ObjectHideFlags: 0
@@ -1871,8 +1868,7 @@ VisualEffect:
       m_Array: []
     m_NamedObject:
       m_Array:
-      - m_Value: {fileID: 6341685721058158667, guid: b313166d3d17183478be64020a842044,
-          type: 3}
+      - m_Value: {fileID: 0}
         m_Name: Mesh
         m_Overridden: 1
     m_Bool:
@@ -1916,4 +1912,4 @@ VFXRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
