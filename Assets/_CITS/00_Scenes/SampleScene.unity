@@ -34752,6 +34752,11 @@ PrefabInstance:
       propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6698923380244032999, guid: 156e3f3baacc0f44c84f8b715196c853,
+        type: 3}
+      propertyPath: _supportedGrabTypes
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7590868557914292956, guid: 156e3f3baacc0f44c84f8b715196c853,
         type: 3}
       propertyPath: m_Volume
