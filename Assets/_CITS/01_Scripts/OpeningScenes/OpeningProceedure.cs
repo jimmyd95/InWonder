@@ -62,18 +62,8 @@ public class OpeningProceedure : MonoBehaviour
         }
         Destroy(tempTitle, _dissolveTime);
 
-        // secretly summons the menu back
-        _spawnningManager.UndissolveItemSequence();
-        _spawnningManager.PostGameMenu();
 
-        _spawnningManager.SapwnCRT();
-        _spawnningManager.SapwnRadio();
-
-            
-        // , if can't be found on OldRadio, manually search it in hierarchy
-        openingMusic = _spawnningManager.keyItems[0] ? 
-            _spawnningManager.keyItems[0].transform.GetChild(_spawnningManager.keyItems[0].transform.childCount - 1).GetComponent<AudioSource>() : 
-            GameObject.FindGameObjectWithTag("Music").GetComponent<AudioSource>();
+        openingMusic = GameObject.FindGameObjectWithTag("Music").GetComponent<AudioSource>();
         // gradually decresase the background music
         while (openingMusic.volume > _musicVolume)
         {
@@ -81,7 +71,20 @@ public class OpeningProceedure : MonoBehaviour
             yield return new WaitForSecondsRealtime(0.1f);
         }
 
-        _spawnningManager.SapwnCCTV();
+        // alarmSound.Play(); // play the alarm sound
+        openingMusic.Stop(); // stop the opening music
+        // set play on awake to false
+        openingMusic.playOnAwake = false;
+
+        // _spawnningManager.SpawnCRT();
+        _spawnningManager.SpawnRadio();
+        // find the location of the audio source from Radio
+        openingMusic = _spawnningManager.keyItems[_spawnningManager.keyItems.Count - 1].transform.GetChild(_spawnningManager.keyItems[2].transform.childCount - 1).GetComponent<AudioSource>();
+
+            
+        // this should find the Music from Menu
+
+        _spawnningManager.SpwanCCTV();
         cameraMount = _spawnningManager.keyItems[3] ? 
             _spawnningManager.keyItems[3].transform.GetChild(0).GetChild(0).GetChild(_spawnningManager.keyItems[3].transform.childCount - 1).gameObject : 
             GameObject.FindGameObjectWithTag("CCTV").transform.GetChild(0).GetChild(0).GetChild(_spawnningManager.keyItems[3].transform.childCount - 1).gameObject;
@@ -92,14 +95,7 @@ public class OpeningProceedure : MonoBehaviour
         //     : GameObject.FindGameObjectWithTag("CCTV").GetComponent<AudioSource>();
 
 
-        // alarmSound.Play(); // play the alarm sound
-        openingMusic.Stop(); // stop the opening music
-        // set play on awake to false
-        openingMusic.playOnAwake = false;
-
-        openingMusic = _spawnningManager.keyItems[2] ? 
-            _spawnningManager.keyItems[2].transform.GetChild(_spawnningManager.keyItems[2].transform.childCount - 1).GetComponent<AudioSource>() 
-            : GameObject.FindGameObjectWithTag("Music").GetComponent<AudioSource>();
+        // openingMusic = GameObject.FindGameObjectWithTag("Music").GetComponent<AudioSource>();
 
         while (openingMusic.volume < 0.5f)
         {
@@ -107,8 +103,13 @@ public class OpeningProceedure : MonoBehaviour
             yield return new WaitForSecondsRealtime(0.1f);
         }
 
+
         // wait for x seconds so users can see the title
         yield return new WaitForSecondsRealtime(_titleDisappearTime);
+        
+        // secretly summons the menu back
+        _spawnningManager.UndissolveItemSequence();
+        _spawnningManager.PostGameMenu();
     }
 
 }

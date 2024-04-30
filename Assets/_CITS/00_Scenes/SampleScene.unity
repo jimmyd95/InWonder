@@ -11887,7 +11887,7 @@ MonoBehaviour:
   _skyboxes: {fileID: 2100000, guid: f5e0932c97e579a47967b8b2d9207ac4, type: 2}
   _floor: {fileID: 1865867354}
   _VRfloor: {fileID: 2100000, guid: a384b583426023d4da68d3f25e868451, type: 2}
-  _occlusionControl: {fileID: 0}
+  _occlusionControl: {fileID: 764504951}
   _mrMaterial: {fileID: 2100000, guid: 4920fec2708aa02478a0b4465d6107b8, type: 2}
   _vrMaterial: {fileID: 2100000, guid: 024004f9c767b8b41aaf380e1cce502d, type: 2}
   _customRoomboxMaterial: {fileID: 2100000, guid: 459f918a79279cb48b79da01631a9791,
@@ -21454,6 +21454,8 @@ MonoBehaviour:
   - {fileID: 3931454630195564038, guid: 258eefbf7bc029447ae44e75efc9d0e5, type: 3}
   - {fileID: 2685241187905382690, guid: 434e77dcbaaa09e4eb505ad49ba50a2a, type: 3}
   - {fileID: 801088072414767554, guid: 3ba5430e0c5975f4183acc6aa13e11f6, type: 3}
+  - {fileID: 60147685532626487, guid: f18df8ba43525584888169695e27e7e8, type: 3}
+  - {fileID: 8426560379995854205, guid: 123493d00e7f993448424742a533bcf0, type: 3}
   _spawningAndVFX: {fileID: 1540288084}
 --- !u!114 &1343846321
 MonoBehaviour:

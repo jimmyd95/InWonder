@@ -22,7 +22,8 @@ public class SpawningAndVFX : MonoBehaviour
 
     private void Start()
     {
-        SpawnMenu();
+        // SpawnMenu();
+        SpawnCRT();
     }
 
     [Button ("Spawn Menu")]
@@ -30,29 +31,31 @@ public class SpawningAndVFX : MonoBehaviour
     {
         // provide menuHolder position by either finding the ceilingObject or cheat by providing where the player camera is at, and add height to it
         // apparently the menu might spawn on the top of the ceiling, so now let's make it spawn few inches in front of the player
-        var tempMenu = Instantiate(_menuHolder, Camera.main.transform.position + new Vector3(0, 0.5f, 0), Quaternion.identity);
+        SpawnKeyItem(_menuHolder,  Camera.main.transform.position + new Vector3(0, 0.5f, 0.25f), Quaternion.identity);
+        // var tempMenu = Instantiate(_menuHolder, Camera.main.transform.position + new Vector3(0, 0.5f, 0), Quaternion.identity);
         // these long ternry operators are to check in case the gameobject couldn't offer the child order
-        _menu = tempMenu.transform.GetChild(0).gameObject ? tempMenu.transform.GetChild(0).gameObject : GameObject.Find("Menu");
-        _menu_dissolveMask = tempMenu.transform.GetChild(1).gameObject ? tempMenu.transform.GetChild(1).gameObject : GameObject.Find("FakeDissolveMask");
+        var lastItem = keyItems.Count - 1;
+        _menu = keyItems[lastItem].transform.GetChild(0).gameObject != null ? keyItems[lastItem].transform.GetChild(0).gameObject : GameObject.Find("Menu");
+        _menu_dissolveMask = keyItems[lastItem].transform.GetChild(1).gameObject != null ? keyItems[lastItem].transform.GetChild(1).gameObject : GameObject.Find("FakeDissolveMask");
         
-        _preGameMenu = _menu.transform.GetChild(0).gameObject ? _menu.transform.GetChild(0).gameObject : GameObject.Find("PreGame");
-        _postGameMenu = _menu.transform.GetChild(1).gameObject ? _menu.transform.GetChild(1).gameObject : GameObject.Find("PostGame");
-        keyItems.Add(tempMenu);
+        _preGameMenu = _menu.transform.GetChild(0).gameObject != null ? _menu.transform.GetChild(0).gameObject : GameObject.Find("PreGame");
+        _postGameMenu = _menu.transform.GetChild(1).gameObject != null ? _menu.transform.GetChild(1).gameObject : GameObject.Find("PostGame");
+        // keyItems.Add(tempMenu);
     }
 
     [Button ("Spawn CRT")]
-    public void SapwnCRT(){
+    public void SpawnCRT(){
         SpawnKeyItem(_CRT_holder, Quaternion.identity);
     }
 
     [Button ("Spawn Radio")]
-    public void SapwnRadio(){
+    public void SpawnRadio(){
         SpawnKeyItem(_OldRadio, Quaternion.identity);
     }
 
     [Button ("Spawn CCTV")]
-    public void SapwnCCTV(){
-        SpawnKeyItem(_CCTV, Quaternion.Euler(180f, 0f, 0f));
+    public void SpwanCCTV(){
+        SpawnKeyItem(_CCTV, Quaternion.AngleAxis(180, Vector3.forward));
     }
 
     // spawn the item based on where the ceiling is at
