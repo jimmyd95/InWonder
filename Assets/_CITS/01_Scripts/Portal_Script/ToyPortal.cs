@@ -140,7 +140,6 @@ public class ToyPortal : MonoBehaviour
         if (!isSpawningToy)
         {
             // -0.125f is the offset to make sure the toy is not clipping through the floor
-            // adding -1f on z axis to make sure the toy is properly spawned in the center of the portal VFX
             spanwedToys.Add(Instantiate(_toys[Random.Range(0, _toys.Length)], tempPortalVFX.transform.position + new Vector3(0f, -0.125f, 0f), Quaternion.identity));
             isSpawningToy = true;
         }
