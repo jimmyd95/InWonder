@@ -39,6 +39,7 @@ public class XRTransition : MonoBehaviour
         // Get the Renderer component of the GameObject
         // rendererVolume = _invisibleVolume.transform.GetChild(0).GetChild(0).GetComponent<Renderer>();
         // rendererPlane = _invisiblePlane.transform.GetChild(0).GetComponent<Renderer>();
+        _floor = GameObject.FindGameObjectWithTag("Floor").transform.GetChild(0).gameObject;
     }
 
     [Button("Back to MR")]

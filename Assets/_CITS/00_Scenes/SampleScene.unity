@@ -11889,7 +11889,7 @@ MonoBehaviour:
   _VRfloor: {fileID: 2100000, guid: a384b583426023d4da68d3f25e868451, type: 2}
   _occlusionControl: {fileID: 764504951}
   _mrMaterial: {fileID: 2100000, guid: 4920fec2708aa02478a0b4465d6107b8, type: 2}
-  _vrMaterial: {fileID: 2100000, guid: 024004f9c767b8b41aaf380e1cce502d, type: 2}
+  _vrMaterial: {fileID: 2100000, guid: ff8200a81758d8543894ba65d48c0544, type: 2}
   _customRoomboxMaterial: {fileID: 2100000, guid: 459f918a79279cb48b79da01631a9791,
     type: 2}
   _invisiblePlane: {fileID: 4643987364315807777, guid: 3c14a2a3c4050304d8341f5334de099d,

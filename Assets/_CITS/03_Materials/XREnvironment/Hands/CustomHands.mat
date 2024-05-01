@@ -29,7 +29,7 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 1000
+  m_CustomRenderQueue: 3000
   stringTagMap: {}
   disabledShaderPasses: []
   m_LockedProperties: 
@@ -126,8 +126,8 @@ Material:
     - _MiddleGlowValue: 0
     - _OcclusionEnabled: 0
     - _OcclusionStrength: 1
-    - _Opacity: 0
-    - _OutlineOpacity: 0
+    - _Opacity: 0.4
+    - _OutlineOpacity: 0.6
     - _OutlineWidth: 0.00136
     - _Parallax: 0.005
     - _PinkyGlowValue: 0
