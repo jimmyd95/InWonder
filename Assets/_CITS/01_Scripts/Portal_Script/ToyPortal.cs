@@ -13,6 +13,7 @@ public class ToyPortal : MonoBehaviour
     [SerializeField] private GameObject[] _toys;
     // [SerializeField] private CeilingManager _ceilingSpawn;
     [SerializeField] private SpawningAndVFX _spawningAndVFX;
+    private CeilingManager _ceilingSpawn;
     private AudioSource portalSound;
     private GameObject tempPortalVFX;
     private bool canProduceToy = false;
@@ -20,11 +21,11 @@ public class ToyPortal : MonoBehaviour
     private bool isSpawningPortal = false;
     private bool isSpawningToy = false;
 
-    private void Start()
-    {
+    IEnumerator Start() {
+        yield return new WaitForEndOfFrame();
         _portalSize = new Vector3(1f, 1f, 1f);
         _portalRotation = new Vector3(90f, 0f, 0f);
-        // _ceilingSpawn.randomizeCeilingPosition(); // call from menu spawn because that's the first & only FindSpawnPosition Script
+        _ceilingSpawn = GameObject.FindObjectOfType<CeilingManager>(); // this only works after the first frame of startup
     }
 
     private void LateUpdate(){
@@ -54,7 +55,11 @@ public class ToyPortal : MonoBehaviour
         if (tempPortalVFX == null && isSpawningPortal == false)
         {
             isSpawningPortal = true;
-            tempPortalVFX = _spawningAndVFX.SpawnItem(_portalVFX, Quaternion.Euler(_portalRotation));
+            // tempPortalVFX = _spawningAndVFX.SpawnItem(_portalVFX, Quaternion.Euler(_portalRotation));
+            // these three line can probably be readjusted and merged with SpawnningAndVFX script...
+            _ceilingSpawn.randomizeCeilingPosition();
+            var tempPosition = GameObject.FindWithTag("SpawnPoint").transform.position;
+            tempPortalVFX = Instantiate(_portalVFX, tempPosition + new Vector3(0, -0.125f, 0f), Quaternion.Euler(_portalRotation));
             // tempPortalVFX = Instantiate(_portalVFX, new Vector3(portalPosition.x, portalPosition.y - 0.2f, portalPosition.z), Quaternion.Euler(_portalRotation));
             portalSound = tempPortalVFX.transform.GetChild(0).GetChild(0).GetComponent<AudioSource>();
             StartCoroutine(playSong());
@@ -63,7 +68,7 @@ public class ToyPortal : MonoBehaviour
         }
         else
         {
-            Debug.LogError("PortalVFX is not assigned");
+            Debug.LogWarning("PortalVFX is not assigned");
         }
     }
 
@@ -79,7 +84,7 @@ public class ToyPortal : MonoBehaviour
         }
         else
         {
-            Debug.LogError("PortalVFX is not assigned");
+            Debug.LogWarning("PortalVFX is not assigned");
         }
     }
 
@@ -136,7 +141,7 @@ public class ToyPortal : MonoBehaviour
         {
             // -0.125f is the offset to make sure the toy is not clipping through the floor
             // adding -1f on z axis to make sure the toy is properly spawned in the center of the portal VFX
-            spanwedToys.Add(Instantiate(_toys[Random.Range(0, _toys.Length)], tempPortalVFX.transform.position + new Vector3(0f, -0.125f, -1f), Quaternion.identity));
+            spanwedToys.Add(Instantiate(_toys[Random.Range(0, _toys.Length)], tempPortalVFX.transform.position + new Vector3(0f, -0.125f, 0f), Quaternion.identity));
             isSpawningToy = true;
         }
         yield return new WaitForSecondsRealtime(Random.Range(0.5f, 2f));

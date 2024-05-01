@@ -20,9 +20,9 @@ public class SpawningAndVFX : MonoBehaviour
     private GameObject _CRT;
     private GameObject _CRT_dissolveMask;
 
-    private void Start()
-    {
-        // SpawnMenu();
+
+    IEnumerator Start() {
+        yield return new WaitForEndOfFrame();
         SpawnCRT();
     }
 
@@ -31,7 +31,7 @@ public class SpawningAndVFX : MonoBehaviour
     {
         // provide menuHolder position by either finding the ceilingObject or cheat by providing where the player camera is at, and add height to it
         // apparently the menu might spawn on the top of the ceiling, so now let's make it spawn few inches in front of the player
-        SpawnKeyItem(_menuHolder,  Camera.main.transform.position + new Vector3(0, 0.5f, 0.25f), Quaternion.identity);
+        SpawnKeyItem(_menuHolder,  Camera.main.transform.position + new Vector3(0, 0.5f, 0.5f), Quaternion.identity);
         // var tempMenu = Instantiate(_menuHolder, Camera.main.transform.position + new Vector3(0, 0.5f, 0), Quaternion.identity);
         // these long ternry operators are to check in case the gameobject couldn't offer the child order
         var lastItem = keyItems.Count - 1;
@@ -67,14 +67,14 @@ public class SpawningAndVFX : MonoBehaviour
     }
 
     public GameObject SpawnItem(GameObject item, Quaternion rotation){
-        _ceilingSpawn.randomizeCeilingPosition();
+        if(_ceilingSpawn) _ceilingSpawn.randomizeCeilingPosition();
         var tempPosition = GameObject.FindWithTag("SpawnPoint") 
             ? GameObject.FindWithTag("SpawnPoint").transform.position + new Vector3(0, -0.25f, 0) : 
             Camera.main.transform.position + new Vector3(0, 1f, 0);
         return Instantiate(item, tempPosition, rotation);
     }
     public GameObject SpawnItem(GameObject item, Vector3 position, Quaternion rotation){
-        _ceilingSpawn.randomizeCeilingPosition();
+        if(_ceilingSpawn) _ceilingSpawn.randomizeCeilingPosition();
         return Instantiate(item, position, rotation);
     }
 

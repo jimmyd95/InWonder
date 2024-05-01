@@ -3,6 +3,7 @@ using System.Linq;
 using Sirenix.OdinInspector;
 using Unity.VisualScripting;
 using Meta.XR.MRUtilityKit;
+using System.Collections;
 
 public class CeilingManager : MonoBehaviour
 {
@@ -10,9 +11,8 @@ public class CeilingManager : MonoBehaviour
     // public MeshRenderer ceilingCorners;
     [SerializeField] private GameObject _ceilingSpawnPoint;
     [SerializeField] private RoomThingamajigApplier _roomThingamajigApplier;
-    private MRUKRoom mrukroom;
-    private OVRSceneRoom ovrRoom;
-    private EffectMesh _mrukEffectMesh;
+    private bool isCeilingLocated = false;
+
 
     public float randomizeNumber(float min, float max)
     {
@@ -42,7 +42,7 @@ public class CeilingManager : MonoBehaviour
         Debug.Log("tempCeiling: " + tempCeiling);
         // mruk = tempCeiling?.GetComponentInParent<MRUKRoom>();
         // mruk = GameObject.FindObjectOfType<MRUKRoom>();
-        ovrRoom = tempCeiling?.GetComponentInParent<OVRSceneRoom>();
+        // ovrRoom = tempCeiling?.GetComponentInParent<OVRSceneRoom>();
         // Debug.Log("tempCeiling: " + tempCeiling.name + " mruk: " + mruk + " ovrRoom: " + ovrRoom);
 
         if (tempCeiling) // This is for MRUK
@@ -56,19 +56,6 @@ public class CeilingManager : MonoBehaviour
             ceilingObject = Instantiate(_ceilingSpawnPoint, tempCeiling.transform.position, Quaternion.identity);
             // ceilingObject.transform.position = GameObject.Find("CEILING").transform.position;
             Debug.Log("Found ceiling");
-        }
-        else if(ovrRoom) // OVR Scene Manager
-        {
-            foreach (var item in ovrRoom.GetComponentsInChildren<OVRSemanticClassification>())
-            {
-                if (item.Labels.Contains(OVRSceneManager.Classification.Ceiling.ToString()))
-                {
-                    item.gameObject.layer = LayerMask.NameToLayer("Wall");
-                    item.gameObject.tag = "Ceiling";
-                    _ceilingSpawnPoint.transform.position = new Vector3(_ceilingSpawnPoint.transform.position.x, item.gameObject.transform.GetChild(0).gameObject.transform.position.y, _ceilingSpawnPoint.transform.position.z);
-                    Debug.Log("Found customInvisiblePlane ceiling");
-                }
-            }
         }
         else
         {
@@ -86,11 +73,6 @@ public class CeilingManager : MonoBehaviour
             ceilingObject.GetComponent<FindSpawnPositions>().StartSpawn();
             Destroy(GameObject.FindGameObjectWithTag("SpawnPoint"));
             Debug.Log("Random spawnning is being called");
-        }
-        else if(ovrRoom)
-        {
-            var tempBounds = GameObject.FindGameObjectWithTag("Ceiling").GetComponent<MeshRenderer>().bounds;
-            Debug.Log("OVR method with tempBounds: " + tempBounds);
         }
         else
         {
