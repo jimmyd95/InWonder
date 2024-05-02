@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Linq;
+using System.Collections;
 using Meta.XR.MRUtilityKit;
 
 public class RoomThingamajigApplier : MonoBehaviour
@@ -8,6 +9,11 @@ public class RoomThingamajigApplier : MonoBehaviour
     private GameObject ceiling;
 
     private void Start() {
+        StartCoroutine(GetRoomObjectAndApplyIDsCoroutine());
+    }
+
+    IEnumerator GetRoomObjectAndApplyIDsCoroutine(){
+        yield return new WaitForEndOfFrame();
         GetRoomObjectAndApplyIDs();
     }
     

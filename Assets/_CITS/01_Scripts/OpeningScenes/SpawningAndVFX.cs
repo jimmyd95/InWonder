@@ -21,9 +21,13 @@ public class SpawningAndVFX : MonoBehaviour
     private GameObject _CRT_dissolveMask;
 
 
-    IEnumerator Start() {
-        yield return new WaitForEndOfFrame();
-        SpawnCRT();
+    private void Start() {
+        StartCoroutine(SpawnCoroutine());
+    }
+
+    IEnumerator SpawnCoroutine(){
+        yield return new WaitForSeconds(1);
+        SpawnMenu();
     }
 
     [Button ("Spawn Menu")]
