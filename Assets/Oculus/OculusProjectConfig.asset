@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: OculusProjectConfig
   m_EditorClassIdentifier: 
   targetDeviceTypes: 020000000300000004000000
-  allowOptional3DofHeadTracking: 0
+  allowOptional3DofHeadTracking: 1
   handTrackingSupport: 1
   handTrackingFrequency: 2
   handTrackingVersion: 2
@@ -33,12 +33,12 @@ MonoBehaviour:
   enableIL2CPPLTO: 0
   focusAware: 1
   requiresSystemKeyboard: 0
-  experimentalFeaturesEnabled: 1
+  experimentalFeaturesEnabled: 0
   insightPassthroughEnabled: 0
   _insightPassthroughSupport: 2
   _processorFavor: 0
   systemSplashScreen: {fileID: 0}
-  systemSplashScreenType: 0
-  _systemLoadingScreenBackground: 0
+  systemSplashScreenType: 1
+  _systemLoadingScreenBackground: 1
   ovrPluginMd5Win64: e8cfe66d40bc858ac6a51dd265d3b2f775fc090fcaadf5d6f47c88d7ff2d6b90
   ovrPluginMd5Android: c7bb9a379e186c4b2726b69bbb7d3acedc7a64ca2155299208c56155cf042247

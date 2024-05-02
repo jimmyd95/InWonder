@@ -1,6 +1,4 @@
 using UnityEngine;
-// using Meta.XR.Depth;
-using UnityEngine.UI;
 using Sirenix.OdinInspector;
 
 public class MROcclusionControl : MonoBehaviour
