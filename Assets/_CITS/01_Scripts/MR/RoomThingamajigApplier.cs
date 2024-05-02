@@ -13,7 +13,7 @@ public class RoomThingamajigApplier : MonoBehaviour
     }
 
     IEnumerator GetRoomObjectAndApplyIDsCoroutine(){
-        yield return new WaitForEndOfFrame();
+        yield return new WaitForSeconds(0.5f);
         GetRoomObjectAndApplyIDs();
     }
     

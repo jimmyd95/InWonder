@@ -27,7 +27,7 @@ public class SpawningAndVFX : MonoBehaviour
 
     IEnumerator SpawnCoroutine(){
         yield return new WaitForSeconds(1);
-        SpawnMenu();
+        SpawnCRT();
     }
 
     [Button ("Spawn Menu")]
@@ -49,7 +49,7 @@ public class SpawningAndVFX : MonoBehaviour
 
     [Button ("Spawn CRT")]
     public void SpawnCRT(){
-        SpawnKeyItem(_CRT_holder, Quaternion.identity);
+        SpawnKeyItem(_CRT_holder, Camera.main.transform.position + new Vector3(0, 0.5f, 0), Quaternion.identity);
     }
 
     [Button ("Spawn Radio")]
@@ -78,7 +78,6 @@ public class SpawningAndVFX : MonoBehaviour
         return Instantiate(item, tempPosition, rotation);
     }
     public GameObject SpawnItem(GameObject item, Vector3 position, Quaternion rotation){
-        if(_ceilingSpawn) _ceilingSpawn.randomizeCeilingPosition();
         return Instantiate(item, position, rotation);
     }
 
