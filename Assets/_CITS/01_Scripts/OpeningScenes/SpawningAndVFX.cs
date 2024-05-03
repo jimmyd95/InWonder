@@ -10,9 +10,7 @@ public class SpawningAndVFX : MonoBehaviour
     [SerializeField] private GameObject _CRT_holder;
     [SerializeField] private GameObject _OldRadio;
     [SerializeField] private GameObject _CCTV;
-    [SerializeField] private ToyPortal _portalVFX;
     [SerializeField] private CeilingManager _ceilingSpawn;
-    [SerializeField] private XRTransition _XRTransition;
     private GameObject _menu;
     private GameObject _menu_dissolveMask;
     private GameObject _preGameMenu;
@@ -27,6 +25,7 @@ public class SpawningAndVFX : MonoBehaviour
 
     IEnumerator SpawnCoroutine(){
         yield return new WaitForSeconds(1);
+        // _ceilingSpawn = GameObject.FindObjectOfType<CeilingManager>();
         SpawnCRT();
     }
 

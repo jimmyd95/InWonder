@@ -20976,7 +20976,7 @@ MonoBehaviour:
   - {fileID: 8820667472227086419, guid: 2d1749b59db99264da0765d14463b86f, type: 3}
   - {fileID: 60147685532626487, guid: f18df8ba43525584888169695e27e7e8, type: 3}
   - {fileID: 8426560379995854205, guid: 123493d00e7f993448424742a533bcf0, type: 3}
-  _spawningAndVFX: {fileID: 1540288084}
+  _ceilingSpawn: {fileID: 926089075}
 --- !u!114 &1343846321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24185,9 +24185,7 @@ MonoBehaviour:
   _OldRadio: {fileID: 7479474599553698994, guid: c086872889a75be4b8c6504d4942fa42,
     type: 3}
   _CCTV: {fileID: 4458737008524182579, guid: 54ec0cc7244395b4d8bb841f55103f00, type: 3}
-  _portalVFX: {fileID: 1343846320}
   _ceilingSpawn: {fileID: 926089075}
-  _XRTransition: {fileID: 764504950}
 --- !u!1 &1545401385
 GameObject:
   m_ObjectHideFlags: 0

@@ -76,7 +76,7 @@ public class CRTControls : MonoBehaviour
         var wonderText = _wonderScreen.transform.GetChild(0).GetChild(1).GetChild(0).GetChild(0).GetComponent<TextMeshPro>();
         wonderText.text = "Find the Orb!";
         // shrink the font of the wonderText 
-        wonderText.fontSize = wonderText.fontSize / 1.4f;
+        wonderText.fontSize = wonderText.fontSize / 1.6f;
         yield return new WaitForSecondsRealtime(2f);
         wonderText.text = "Portal me";
 

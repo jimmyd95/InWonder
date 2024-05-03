@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 using Sirenix.OdinInspector;
 
 public class CeilingManager : MonoBehaviour
@@ -7,8 +8,16 @@ public class CeilingManager : MonoBehaviour
     // public MeshRenderer ceilingCorners;
     [SerializeField] private GameObject _ceilingSpawnPoint;
     [SerializeField] private RoomThingamajigApplier _roomThingamajigApplier;
-    private bool isCeilingLocated = false;
 
+    private void Start() {
+        // LocateCeilingBoundaries();
+        StartCoroutine(findCeilingManager());
+    }
+    
+    IEnumerator findCeilingManager(){
+        yield return new WaitForSeconds(0.5f);
+        LocateCeilingBoundaries();
+    }
 
     public float randomizeNumber(float min, float max)
     {

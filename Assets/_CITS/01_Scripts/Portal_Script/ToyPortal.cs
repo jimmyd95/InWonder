@@ -11,9 +11,8 @@ public class ToyPortal : MonoBehaviour
     [SerializeField] private Vector3 _portalSize;
     [SerializeField] private Vector3 _portalRotation;
     [SerializeField] private GameObject[] _toys;
-    // [SerializeField] private CeilingManager _ceilingSpawn;
-    [SerializeField] private SpawningAndVFX _spawningAndVFX;
-    private CeilingManager _ceilingSpawn;
+    [SerializeField] private CeilingManager _ceilingSpawn;
+    // private CeilingManager _ceilingSpawn;
     private AudioSource portalSound;
     private GameObject tempPortalVFX;
     private bool canProduceToy = false;
@@ -24,13 +23,8 @@ public class ToyPortal : MonoBehaviour
     private void Start() {
         _portalSize = new Vector3(1f, 1f, 1f);
         _portalRotation = new Vector3(90f, 0f, 0f);
-        StartCoroutine(findCeilingManager());
     }
 
-    IEnumerator findCeilingManager(){
-        yield return new WaitForEndOfFrame();
-        _ceilingSpawn = GameObject.FindObjectOfType<CeilingManager>(); // this only works after the first frame of startup
-    }
 
     private void LateUpdate(){
         if (canProduceToy)
