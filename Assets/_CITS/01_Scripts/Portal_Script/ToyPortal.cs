@@ -21,10 +21,14 @@ public class ToyPortal : MonoBehaviour
     private bool isSpawningPortal = false;
     private bool isSpawningToy = false;
 
-    IEnumerator Start() {
-        yield return new WaitForEndOfFrame();
+    private void Start() {
         _portalSize = new Vector3(1f, 1f, 1f);
         _portalRotation = new Vector3(90f, 0f, 0f);
+        StartCoroutine(findCeilingManager());
+    }
+
+    IEnumerator findCeilingManager(){
+        yield return new WaitForEndOfFrame();
         _ceilingSpawn = GameObject.FindObjectOfType<CeilingManager>(); // this only works after the first frame of startup
     }
 

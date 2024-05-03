@@ -26,6 +26,7 @@ public class CRTControls : MonoBehaviour
         _isOn = !_isOn;
     }
 
+    // there's 1/3 chances that it will trigger a wonder screen, allowing users to summon the portal
     [Button("Coin Toss")]
     public void CoinToss(){
         if(Random.Range(0, 3) == 1){
@@ -47,7 +48,7 @@ public class CRTControls : MonoBehaviour
         }
     }
 
-    // instead of finding the portal, I am going to use the bolt and use it to summon the portal
+    // only if the bolt is being summoned, the portal will be spawned, otherwise it will ask the player to find the bolt
     [Button("Summon Portal")]
     public void OnSummonPortal()
     {
@@ -70,6 +71,7 @@ public class CRTControls : MonoBehaviour
         
     }
 
+    // does a hint if the bolt is not found
     IEnumerator wonderNotFound(){
         var wonderText = _wonderScreen.transform.GetChild(0).GetChild(1).GetChild(0).GetChild(0).GetComponent<TextMeshPro>();
         wonderText.text = "Find the Orb!";
