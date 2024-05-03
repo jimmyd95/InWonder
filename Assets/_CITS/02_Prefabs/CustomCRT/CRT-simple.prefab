@@ -1989,7 +1989,7 @@ GameObject:
   - component: {fileID: 7255131427907173660}
   - component: {fileID: 5380773931823907364}
   - component: {fileID: 8649139969665416699}
-  - component: {fileID: 1784848059984180740}
+  - component: {fileID: 453909468231127674}
   m_Layer: 0
   m_Name: CRT-simple
   m_TagString: Untagged
@@ -2028,7 +2028,7 @@ Rigidbody:
   m_GameObject: {fileID: 1275299137724109109}
   serializedVersion: 4
   m_Mass: 30
-  m_Drag: 5
+  m_Drag: 8
   m_AngularDrag: 20
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -2062,7 +2062,7 @@ MonoBehaviour:
   _addNewPointsToFront: 0
   _forwardElement: {fileID: 0}
   _oneGrabTransformer: {fileID: 0}
-  _twoGrabTransformer: {fileID: 0}
+  _twoGrabTransformer: {fileID: 453909468231127674}
   _targetTransform: {fileID: 0}
   _maxGrabPoints: -1
 --- !u!114 &7255131427907173660
@@ -2144,7 +2144,7 @@ MonoBehaviour:
   _movementProvider: {fileID: 0}
   _handAligment: 1
   _handGrabPoses: []
---- !u!114 &1784848059984180740
+--- !u!114 &453909468231127674
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2153,19 +2153,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1275299137724109109}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cb4a09355f9dc244bfbcd2ac9208ef7, type: 3}
+  m_Script: {fileID: 11500000, guid: b053556d972eae24b947c1477538bff1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interactorFilters: []
-  _maxInteractors: -1
-  _maxSelectingInteractors: -1
-  _data: {fileID: 0}
-  _pointableElement: {fileID: 4218444399950878856}
-  _boundsCollider: {fileID: 4301815630008593074}
-  _colliders:
-  - {fileID: 7618144018737747360}
-  - {fileID: 4914448559662189500}
-  - {fileID: 4301815630008593074}
+  _constraints:
+    ConstraintsAreRelative: 0
+    MinScale:
+      Constrain: 1
+      Value: 5
+    MaxScale:
+      Constrain: 1
+      Value: 5
+    ConstrainXScale: 0
+    ConstrainYScale: 0
+    ConstrainZScale: 0
 --- !u!1 &1293776689100215025
 GameObject:
   m_ObjectHideFlags: 0

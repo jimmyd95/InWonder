@@ -38,11 +38,13 @@ public class SpawningAndVFX : MonoBehaviour
         // var tempMenu = Instantiate(_menuHolder, Camera.main.transform.position + new Vector3(0, 0.5f, 0), Quaternion.identity);
         // these long ternry operators are to check in case the gameobject couldn't offer the child order
         var lastItem = keyItems.Count - 1;
-        _menu = keyItems[lastItem].transform.GetChild(1).gameObject != null ? keyItems[lastItem].transform.GetChild(1).gameObject : GameObject.Find("Menu");
-        _menu_dissolveMask = keyItems[lastItem].transform.GetChild(2).gameObject != null ? keyItems[lastItem].transform.GetChild(2).gameObject : GameObject.Find("FakeDissolveMask");
+        _menu = keyItems[lastItem].transform.GetChild(1).gameObject ? keyItems[lastItem].transform.GetChild(1).gameObject : GameObject.Find("Menu");
+        Debug.Log("Houston we have an issue: " + _menu.name);
+        _menu_dissolveMask = keyItems[lastItem].transform.GetChild(2).gameObject ? keyItems[lastItem].transform.GetChild(2).gameObject : GameObject.Find("FakeDissolveMask");
         
-        _preGameMenu = _menu.transform.GetChild(0).gameObject != null ? _menu.transform.GetChild(0).gameObject : GameObject.Find("PreGame");
-        _postGameMenu = _menu.transform.GetChild(1).gameObject != null ? _menu.transform.GetChild(1).gameObject : GameObject.Find("PostGame");
+        _preGameMenu = _menu.transform.GetChild(0).gameObject ? _menu.transform.GetChild(0).gameObject : GameObject.Find("PreGame");
+        _postGameMenu = _menu.transform.GetChild(1).gameObject ? _menu.transform.GetChild(1).gameObject : GameObject.Find("PostGame");
+        Debug.Log("Pre and post Game Menu: " + _preGameMenu.name + " " + _postGameMenu.name);
         // keyItems.Add(tempMenu);
     }
 

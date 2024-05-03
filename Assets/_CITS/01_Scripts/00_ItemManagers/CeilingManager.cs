@@ -13,9 +13,9 @@ public class CeilingManager : MonoBehaviour
         // LocateCeilingBoundaries();
         StartCoroutine(findCeilingManager());
     }
-    
+
     IEnumerator findCeilingManager(){
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
         LocateCeilingBoundaries();
     }
 
