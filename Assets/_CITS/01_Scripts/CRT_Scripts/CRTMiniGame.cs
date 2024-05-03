@@ -16,8 +16,6 @@ public class CRTMiniGame : MonoBehaviour
     private int[] arbitraryTriple = new int[3];
     private List<string> checkIfCorrectWords = new List<string>();
     private string[] currentStorageText = new string[9];
-    private bool _hasAquiredWords = false;
-    private bool _hasDisplayedText = false;
 
     private void Start() {
         aquireWords();
@@ -26,50 +24,38 @@ public class CRTMiniGame : MonoBehaviour
 
     private void Update() {
 
-        if (_hasAquiredWords && _hasDisplayedText)
+        // check in every update if any of the nine buttons is selected, if so, check if the selected words are included in the array, if so, change to the next patch of words
+        foreach (var item in buttons)
         {
-            // check in every update if any of the nine buttons is selected, if so, check if the selected words are included in the array, if so, change to the next patch of words
-            foreach (var item in buttons)
+            if(item.GetComponent<ButtonClass>().buttonSelected)
             {
-                if(item.GetComponent<ButtonClass>().buttonSelected)
+                var tempTMPtext = item.transform.GetChild(1).GetChild(0).GetChild(0).GetComponent<TextMeshPro>(); // since this is embeded within the button, it has to go through all the child objects
+                // if the button is selected and it is not within the checkIfCorrectWords, add it to the list, and decrease the pressCount
+
+                if (!checkIfCorrectWords.Contains(tempTMPtext.text))
                 {
-                    var tempTMPtext = item.transform.GetChild(1).GetChild(0).GetChild(0).GetComponent<TextMeshPro>(); // since this is embeded within the button, it has to go through all the child objects
-                    // if the button is selected and it is not within the checkIfCorrectWords, add it to the list, and decrease the pressCount
-
-                    if (!checkIfCorrectWords.Contains(tempTMPtext.text))
-                    {
-                        Debug.Log("Found list: " + tempTMPtext.text);
-                        tempTMPtext.fontSize += 2;
-                        checkIfCorrectWords.Add(tempTMPtext.text);
-                        Debug.Log("This is the end of the line, check again if correct words: " + checkIfCorrectWords.Count + " " + checkIfCorrectWords.Last());
-                    }
-
-                    if (checkIfCorrectWords.Count == 3)
-                    {
-                        if (checkCorrectWords(checkIfCorrectWords))
-                        {
-                            displayText();
-                            Debug.Log("The word is correct");
-                        }
-                        else
-                        {
-                            displayErrorText();
-                            Debug.Log("The word is incorrect");
-                        }
-                        checkIfCorrectWords.Clear();
-                    }
-                    item.GetComponent<ButtonClass>().buttonSelected = false;
+                    Debug.Log("Found list: " + tempTMPtext.text);
+                    tempTMPtext.fontSize += 2;
+                    checkIfCorrectWords.Add(tempTMPtext.text);
+                    Debug.Log("This is the end of the line, check again if correct words: " + checkIfCorrectWords.Count + " " + checkIfCorrectWords.Last());
                 }
+
+                if (checkIfCorrectWords.Count == 3)
+                {
+                    if (checkCorrectWords(checkIfCorrectWords))
+                    {
+                        displayText();
+                        Debug.Log("The word is correct");
+                    }
+                    else
+                    {
+                        displayErrorText();
+                        Debug.Log("The word is incorrect");
+                    }
+                    checkIfCorrectWords.Clear();
+                }
+                item.GetComponent<ButtonClass>().buttonSelected = false;
             }
-        }else if(!_hasAquiredWords)
-        {
-            aquireWords();
-        }else if(!_hasDisplayedText)
-        {
-            displayText();
-        }else
-        {
-            Debug.Log("Something went wrong");
         }
     }
     
@@ -82,16 +68,16 @@ public class CRTMiniGame : MonoBehaviour
     // read the 'MiniGame-words.txt' file
     // export the words in each cell in respective 1D array
     private void aquireWords(){
-        string path = "Assets/Resources/MiniGame_words.txt";
+        // string path = "Assets/Resources/MiniGame_words.txt";
+        TextAsset path = Resources.Load<TextAsset>("MiniGame_words");
 
-        string[] lines = File.ReadAllLines(path);
+        string[] lines = path.text.Split(new char[] {'\r', '\n'}, System.StringSplitOptions.RemoveEmptyEntries);
 
         foreach (var line in lines)
         {
             // split the word with ',' and '\n' and add them to the list and exclude the empty entries
             words.AddRange(line.Split(new char[] {',', '\n'}, System.StringSplitOptions.RemoveEmptyEntries));
         }
-        _hasAquiredWords = true;
 
         // foreach (var word in words)
         // {
@@ -122,7 +108,6 @@ public class CRTMiniGame : MonoBehaviour
             buttons[i].transform.GetChild(1).GetChild(0).GetChild(0).GetComponent<TextMeshPro>().text = currentStorageText[tempTextPlacement];
             // Debug.Log("The randomized text: " + currentStorageText[tempTextPlacement] + "\n\n");
         }
-        _hasDisplayedText = true;
     }
 
     private void displayErrorText(){
