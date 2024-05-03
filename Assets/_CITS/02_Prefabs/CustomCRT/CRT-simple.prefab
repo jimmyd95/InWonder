@@ -2160,10 +2160,10 @@ MonoBehaviour:
     ConstraintsAreRelative: 0
     MinScale:
       Constrain: 1
-      Value: 5
+      Value: 3
     MaxScale:
       Constrain: 1
-      Value: 5
+      Value: 3
     ConstrainXScale: 0
     ConstrainYScale: 0
     ConstrainZScale: 0

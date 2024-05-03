@@ -11,8 +11,8 @@ public class MenuManager : MonoBehaviour
 
     private void Start() {
         openingProceedure = GameObject.FindGameObjectWithTag("Opening").GetComponent<OpeningProceedure>();
-        portalVFX = GameObject.FindAnyObjectByType<ToyPortal>();
-        xrportal = GameObject.FindAnyObjectByType<XRPortal>(); // since I'm destorying the portal everytime I call it, it will have to be "found" every time
+        portalVFX = GameObject.FindObjectOfType<ToyPortal>();
+        xrportal = GameObject.FindObjectOfType<XRPortal>(); // since I'm destorying the portal everytime I call it, it will have to be "found" every time
     }
 
     [Button("Press first time")]

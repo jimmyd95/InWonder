@@ -102,14 +102,13 @@ public class OpeningProceedure : MonoBehaviour
             openingMusic.volume += 0.05f;
             yield return new WaitForSecondsRealtime(0.1f);
         }
-
+        // secretly summons the menu back
+        _spawnningManager.UndissolveItemSequence();
+        _spawnningManager.PostGameMenu();
 
         // wait for x seconds so users can see the title
         yield return new WaitForSecondsRealtime(_titleDisappearTime);
         
-        // secretly summons the menu back
-        _spawnningManager.UndissolveItemSequence();
-        _spawnningManager.PostGameMenu();
     }
 
 }

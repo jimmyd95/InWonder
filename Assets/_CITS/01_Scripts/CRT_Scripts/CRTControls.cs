@@ -74,9 +74,9 @@ public class CRTControls : MonoBehaviour
     // does a hint if the bolt is not found
     IEnumerator wonderNotFound(){
         var wonderText = _wonderScreen.transform.GetChild(0).GetChild(1).GetChild(0).GetChild(0).GetComponent<TextMeshPro>();
-        wonderText.text = "Find the Orb!";
+        // wonderText.fontSize = wonderText.fontSize / 1.6f;
+        wonderText.text = "No Orb!";
         // shrink the font of the wonderText 
-        wonderText.fontSize = wonderText.fontSize / 1.6f;
         yield return new WaitForSecondsRealtime(2f);
         wonderText.text = "Portal me";
 
