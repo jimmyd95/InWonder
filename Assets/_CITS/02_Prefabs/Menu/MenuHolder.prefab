@@ -425,7 +425,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8237580525340204367
 Transform:
   m_ObjectHideFlags: 0
@@ -1344,7 +1344,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enableSpatialization: 1
-  gainBoostDb: 0
+  gainBoostDb: 10
   enableAcoustics: 1
   reverbSendDb: 0
 --- !u!1 &6422263360993637901
