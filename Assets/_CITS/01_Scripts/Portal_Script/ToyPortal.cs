@@ -138,7 +138,7 @@ public class ToyPortal : MonoBehaviour
         if (!isSpawningToy)
         {
             // -0.125f is the offset to make sure the toy is not clipping through the floor
-            spanwedToys.Add(Instantiate(_toys[Random.Range(0, _toys.Length)], tempPortalVFX.transform.position + new Vector3(0f, -0.125f, 0f), Quaternion.identity));
+            spanwedToys.Add(Instantiate(_toys[Random.Range(0, _toys.Length)], tempPortalVFX.transform.position + new Vector3(0f, -0.51f, 0f), Quaternion.identity));
             isSpawningToy = true;
         }
         yield return new WaitForSecondsRealtime(Random.Range(0.5f, 2f));

@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using Sirenix.OdinInspector;
+using Meta.XR.MRUtilityKit;
 
 public class CeilingManager : MonoBehaviour
 {
@@ -75,8 +76,25 @@ public class CeilingManager : MonoBehaviour
         }
         else if (ceilingObject)
         {
-            ceilingObject.GetComponent<FindSpawnPositions>().StartSpawn();
-            Destroy(GameObject.FindGameObjectWithTag("SpawnPoint"));
+            var tempCeiling = _roomThingamajigApplier.getCeiling();
+            var tempBoundaryList = tempCeiling.GetComponent<MRUKAnchor>().PlaneBoundary2D;
+            var tempCenter = tempCeiling.GetComponent<MRUKAnchor>().GetAnchorCenter();
+            var tempRandomVector = Vector2.zero; // stores the final randomized vector of the ceiling spawn
+
+            // randomly generate the spawn point within the boundary and then repeats itself again if it is not
+            do{
+                var tempX = Random.Range(tempBoundaryList[0].x, tempBoundaryList[tempBoundaryList.Count - 1].x); // randomly pick an x val in the list
+                var tempY = Random.Range(tempBoundaryList[0].y, tempBoundaryList[tempBoundaryList.Count - 1].y);
+                Debug.Log("tempX: " + tempX + " tempY: " + tempY);
+                tempRandomVector = new Vector2(Random.Range(tempCenter.x, tempX), Random.Range(tempCenter.x, tempY));
+            }while(!tempCeiling.GetComponent<MRUKAnchor>().IsPositionInBoundary(tempRandomVector));
+            // tempCeiling.transform.GetChild(0).GetComponent<MeshRenderer>().localBounds();
+
+            ceilingObject.transform.position = new Vector3(tempRandomVector.x, ceilingObject.transform.position.y, tempRandomVector.y);
+
+            // ceilingObject.GetComponent<FindSpawnPositions>().StartSpawn();
+            // // I'm too lazy to build a different method based off of StartSpawn, so I assign the spawn point after StartSpawn
+            // Destroy(GameObject.FindWithTag("SpawnPoint"));
             Debug.Log("Random spawnning is being called");
         }
         else

@@ -41,6 +41,7 @@ public class OpeningProceedure : MonoBehaviour
     {
         Debug.Log("Opening Sequence Started");
         _spawnningManager.MenuDissolveSequence();
+        _spawnningManager.PostGameMenu(); // immediately set it to the post game Menu if possible
         // get the position of the player camera
         var camPosition = Camera.main.transform.position;
 
@@ -69,7 +70,7 @@ public class OpeningProceedure : MonoBehaviour
         {
             openingMusic.volume -= 0.05f;
             yield return new WaitForSecondsRealtime(0.1f);
-        }
+        }        
 
         // alarmSound.Play(); // play the alarm sound
         openingMusic.Stop(); // stop the opening music
@@ -102,9 +103,9 @@ public class OpeningProceedure : MonoBehaviour
             openingMusic.volume += 0.05f;
             yield return new WaitForSecondsRealtime(0.1f);
         }
+
         // secretly summons the menu back
         _spawnningManager.UndissolveItemSequence();
-        _spawnningManager.PostGameMenu();
 
         // wait for x seconds so users can see the title
         yield return new WaitForSecondsRealtime(_titleDisappearTime);

@@ -5,6 +5,7 @@ using Meta.XR.MRUtilityKit;
 
 public class RoomThingamajigApplier : MonoBehaviour
 {
+    private GameObject mrukObj;
     private GameObject floor;
     private GameObject ceiling;
 
@@ -28,7 +29,7 @@ public class RoomThingamajigApplier : MonoBehaviour
         while (ceiling == null)
             ceiling = GameObject.Find("CEILING");
 
-        GameObject mrukObj = GameObject.FindObjectOfType<MRUKRoom>().gameObject;
+        mrukObj = GameObject.FindObjectOfType<MRUKRoom>().gameObject;
         // assign the mrukObj as the MRUKRoom script gameobject, so I won't be able to temper with the "found script object" directly
         // tempFloor.GetComponentInParent<MRUKAnchor>().gameObject.layer = LayerMask.NameToLayer("Wall");
 
@@ -162,4 +163,5 @@ public class RoomThingamajigApplier : MonoBehaviour
     public GameObject getCeiling(){
         return ceiling;
     }
+
 }

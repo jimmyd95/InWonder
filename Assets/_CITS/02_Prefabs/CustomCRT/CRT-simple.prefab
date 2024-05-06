@@ -2160,13 +2160,13 @@ MonoBehaviour:
     ConstraintsAreRelative: 0
     MinScale:
       Constrain: 1
-      Value: 3
+      Value: 4
     MaxScale:
       Constrain: 1
-      Value: 3
-    ConstrainXScale: 0
-    ConstrainYScale: 0
-    ConstrainZScale: 0
+      Value: 4
+    ConstrainXScale: 1
+    ConstrainYScale: 1
+    ConstrainZScale: 1
 --- !u!1 &1293776689100215025
 GameObject:
   m_ObjectHideFlags: 0
