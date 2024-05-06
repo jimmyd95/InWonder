@@ -127,7 +127,7 @@ public class SpawningAndVFX : MonoBehaviour
     
     IEnumerator undissolveItems()
     {
-        yield return new WaitForSecondsRealtime(Random.Range(2f, 5f));
+        yield return new WaitForSecondsRealtime(Random.Range(5f, 10f));
         _menuHolder.SetActive(true);
         _menu_dissolveMask.GetComponent<DissolveController>().StartUndissolve();
         _menu_dissolveMask.SetActive(false);

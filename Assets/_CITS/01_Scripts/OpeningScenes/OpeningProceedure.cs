@@ -1,4 +1,5 @@
 using UnityEngine;
+using DG.Tweening;
 using System.Collections;
 using Sirenix.OdinInspector;
 
@@ -10,7 +11,7 @@ public class OpeningProceedure : MonoBehaviour
     [SerializeField] private GameObject _title;
     [SerializeField] private float _musicVolume = 0.15f;
     [SerializeField] private float _titleDisappearTime = 10f;
-    [SerializeField] private float _dissolveTime = 1f;
+    [SerializeField] private float _dissolveTime = 2f;
     private AudioSource openingMusic;
     private AudioSource alarmSound;
     private GameObject cameraMount;
@@ -46,7 +47,10 @@ public class OpeningProceedure : MonoBehaviour
         var camPosition = Camera.main.transform.position;
 
         // spawn title on top of the menu item, initiate the undissolve process
-        tempTitle = Instantiate(_title, camPosition + new Vector3(0f, 1.5f, 2f), Quaternion.identity);
+        tempTitle = Instantiate(_title, _spawnningManager.transform.position, Quaternion.identity);
+
+        tempTitle.transform.DOJump(_spawnningManager.transform.position + new Vector3(0f, 0.75f, 0.75f), 0.125f, 1, 3f);
+        // tempTitle.transform.DORotate(_spawnningManager.transform.position + Vector3.up, 1f, RotateMode.FastBeyond360).SetEase(Ease.InOutSine);
 
         // need to fine tune the bloody animation + vector graph of the title
         // foreach (var letter in tempTitle.GetComponentsInChildren<DissolveController>())

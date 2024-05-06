@@ -9,6 +9,7 @@ public class CeilingManager : MonoBehaviour
     // public MeshRenderer ceilingCorners;
     [SerializeField] private GameObject _ceilingSpawnPoint;
     [SerializeField] private RoomThingamajigApplier _roomThingamajigApplier;
+    private GameObject tempCeiling;
 
     private void Start() {
         // LocateCeilingBoundaries();
@@ -44,7 +45,7 @@ public class CeilingManager : MonoBehaviour
         // ceilingObject.transform.position = new Vector3(, randomizeNumber(2, 5), randomizeNumber(-5, 5));
 
         // mruk = GameObject.Find("CEILING") ? GameObject.Find("CEILING").GetComponentInParent<MRUKRoom>() : null;
-        var tempCeiling = _roomThingamajigApplier.getCeiling();
+        tempCeiling = _roomThingamajigApplier.getCeiling();
         Debug.Log("tempCeiling: " + tempCeiling);
         // mruk = tempCeiling?.GetComponentInParent<MRUKRoom>();
         // mruk = GameObject.FindObjectOfType<MRUKRoom>();
@@ -59,7 +60,7 @@ public class CeilingManager : MonoBehaviour
             // var mrukCeiling = mrukAnchors.Where(x => x.name.Contains("CEILING")).FirstOrDefault().gameObject;
             // var tempCeiling = GameObject.Find("CEILING");
             // ceilingSpawnPoint.transform.position = new Vector3(ceilingSpawnPoint.transform.position.x, tempCeiling.transform.position.y, ceilingSpawnPoint.transform.position.z);
-            ceilingObject = Instantiate(_ceilingSpawnPoint, tempCeiling.transform.position, Quaternion.identity);
+            ceilingObject = Instantiate(_ceilingSpawnPoint, tempCeiling.transform.position - new Vector3(0f, -0.125f, 0f), Quaternion.identity);
             // ceilingObject.transform.position = GameObject.Find("CEILING").transform.position;
             Debug.Log("Found ceiling");
         }
@@ -76,7 +77,6 @@ public class CeilingManager : MonoBehaviour
         }
         else if (ceilingObject)
         {
-            var tempCeiling = _roomThingamajigApplier.getCeiling();
             var tempBoundaryList = tempCeiling.GetComponent<MRUKAnchor>().PlaneBoundary2D;
             var tempCenter = tempCeiling.GetComponent<MRUKAnchor>().GetAnchorCenter();
             var tempRandomVector = Vector2.zero; // stores the final randomized vector of the ceiling spawn

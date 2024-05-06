@@ -24218,8 +24218,8 @@ MonoBehaviour:
   _spawnningManager: {fileID: 1540288084}
   _title: {fileID: 1887645017947106853, guid: a8e9ac98d31a80349a2d5b399ed07f1a, type: 3}
   _musicVolume: 0.15
-  _titleDisappearTime: 8
-  _dissolveTime: 1
+  _titleDisappearTime: 10
+  _dissolveTime: 2
 --- !u!114 &1540288084
 MonoBehaviour:
   m_ObjectHideFlags: 0
