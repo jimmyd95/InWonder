@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6698923380244032999}
   - component: {fileID: 4601118033618580986}
   m_Layer: 0
-  m_Name: RestButton
+  m_Name: ResetButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

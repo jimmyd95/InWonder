@@ -40,6 +40,13 @@ public class XRTransition : MonoBehaviour
         // rendererVolume = _invisibleVolume.transform.GetChild(0).GetChild(0).GetComponent<Renderer>();
         // rendererPlane = _invisiblePlane.transform.GetChild(0).GetComponent<Renderer>();
         // _floor = GameObject.FindGameObjectWithTag("Floor").transform.GetChild(0).gameObject;
+        StartCoroutine(findFloorTag());
+    }
+
+    IEnumerator findFloorTag(){
+        yield return new WaitForSeconds(1.5f);
+        _floor = GameObject.FindGameObjectWithTag("Floor").transform.GetChild(0).gameObject; // find the floor but a bit later
+        Debug.Log("Found the floor here: " + _floor.name);
     }
 
     [Button("Back to MR")]
