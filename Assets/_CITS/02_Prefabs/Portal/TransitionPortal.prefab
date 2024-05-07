@@ -49,7 +49,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _firstEncounterMusic: {fileID: 5572597981791117313}
-  time: 2
 --- !u!65 &6664269836997854362
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -159,7 +158,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c2b11dd715b0ab3469d373f9b6eafc78, type: 2}
+  - {fileID: 2100000, guid: 8bf34dc20ae170c4caeffd9bb79677ac, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -192,7 +191,7 @@ PrefabInstance:
     - target: {fileID: 2072531534027595981, guid: 588b09a144c103e43a3c8606110afdd7,
         type: 3}
       propertyPath: m_Name
-      value: FirstVREncounter
+      value: FirstVREncounterAudio
       objectReference: {fileID: 0}
     - target: {fileID: 8644814468653560459, guid: 588b09a144c103e43a3c8606110afdd7,
         type: 3}

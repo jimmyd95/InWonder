@@ -47,7 +47,7 @@ public class MROcclusionControl : MonoBehaviour
         {
             _handsMaterial.renderQueue = 3000;
             _handsMaterial.SetFloat("_OutlineOpacity", 0.6f); // find the Outline of the hands and change the alpha
-            _handsMaterial.SetFloat("_Opacity", 0.4f);
+            _handsMaterial.SetFloat("_Opacity", 0.1f);
         }else{
             _handsMaterial.renderQueue = 1000;
             _handsMaterial.SetFloat("_OutlineOpacity", 0f);

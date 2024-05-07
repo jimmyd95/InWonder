@@ -6,41 +6,27 @@ public class XRTransition : MonoBehaviour
 {
     // public MRScenePermission MRScenePermission;
     [SerializeField] private Material _skyboxes;
-    [SerializeField] private GameObject _floor;
     [SerializeField] private Material _VRfloor;
     [SerializeField] private MROcclusionControl _occlusionControl;
     [SerializeField] private Material _mrMaterial;
     [SerializeField] private Material _vrMaterial;
-    [SerializeField] private Material _customRoomboxMaterial;
-    [SerializeField] private GameObject _invisiblePlane;
-    [SerializeField] private GameObject _invisibleVolume;
+    [SerializeField] private Material _VRfurnitureMaterial;
+    [SerializeField] private Material _MRVolumeMaterial;
     [SerializeField] private ToyPortal _portalVFX;
     [SerializeField] private SpawningAndVFX _spawningAndVFX;
     private AudioSource mainMusic;
-    private Renderer rendererVolume;
-    private Renderer rendererPlane;
+    private GameObject _OVRSceneVolume;
+    private GameObject _floor;
 
     // private EnvironmentDepthTextureProvider _depthTextureProvider;
 
     // apply hands passthrough material
     // change the MR room materials (i.e. invisible plane and volume) to the VR materials
 
-    // private void Awake()
-    // {
-        // // remove hands from depth map
-        // _depthTextureProvider.RemoveHands(true);
-
-        // // restore hands in depth map
-        // _depthTextureProvider.RemoveHands(false);
-    // }
-
     // touch hand grab interactable for free grabbing objects with colliders included
     private void Start() {
-        // Get the Renderer component of the GameObject
-        // rendererVolume = _invisibleVolume.transform.GetChild(0).GetChild(0).GetComponent<Renderer>();
-        // rendererPlane = _invisiblePlane.transform.GetChild(0).GetComponent<Renderer>();
-        // _floor = GameObject.FindGameObjectWithTag("Floor").transform.GetChild(0).gameObject;
         StartCoroutine(findFloorTag());
+        StartCoroutine(findOVRSceneVolume());
     }
 
     IEnumerator findFloorTag(){
@@ -49,16 +35,25 @@ public class XRTransition : MonoBehaviour
         Debug.Log("Found the floor here: " + _floor.name);
     }
 
+    IEnumerator findOVRSceneVolume(){
+        yield return new WaitForSeconds(1.5f);
+        _OVRSceneVolume = GameObject.FindAnyObjectByType<OVRSceneVolumeMeshFilter>().gameObject; // find the OVRSceneVolume so we can change its mateiral
+        _OVRSceneVolume.layer = LayerMask.NameToLayer("Wall"); // set it to wall layer so it can be seen through the portal
+        Debug.Log("Found the OVRSceneVolume here: " + _OVRSceneVolume.name);
+    }
+
     [Button("Back to MR")]
     public void BackToMR()
     {
         // this is a bit sloppy, but it works... manually changing the skybox by tuggling it on and off
-        RenderSettings.skybox = null;
+        // not going to use it for the time being because I need the portal to "see the skybox"
+        // RenderSettings.skybox = null;
+        // Camera.main.clearFlags = CameraClearFlags.SolidColor;
+        // Color tempColour = Color.black;
+        // tempColour.a = 0;
+        // Camera.main.backgroundColor = tempColour;
         _floor.GetComponent<MeshRenderer>().material = _mrMaterial;
-        Camera.main.clearFlags = CameraClearFlags.SolidColor;
-        Color tempColour = Color.black;
-        tempColour.a = 0;
-        Camera.main.backgroundColor = tempColour;
+        _OVRSceneVolume.GetComponent<MeshRenderer>().material = _MRVolumeMaterial;
 
         // make virtual hands invisible
         _occlusionControl.isVR = false;
@@ -80,15 +75,6 @@ public class XRTransition : MonoBehaviour
         {
             item.SetActive(true);
         }
-
-        // // Set the material of the Renderer
-        // rendererVolume.sharedMaterial = _MRMaterial;
-        // rendererPlane.sharedMaterial = _MRMaterial;
-        
-        // _invisiblePlane.transform.GetChild(0).GetComponent<MeshRenderer>().sharedMaterial = _mrMaterial;
-        // // get the child of the child of the gameobject. This is pain
-        // _invisibleVolume.transform.GetChild(0).GetChild(0).GetComponent<MeshRenderer>().sharedMaterial = _mrMaterial;
-        // _effectMesh.MeshMaterial = _mrMaterial;
 
         // GameObject.FindObjectOfType<MRUKRoom>().transform.GetComponentInChildren;
 
@@ -114,9 +100,10 @@ public class XRTransition : MonoBehaviour
     public void IntoVR()
     {
         // an old fashion way to change skybox, just manually setting it with camera and passthrough
-        RenderSettings.skybox = _skyboxes;
+        // RenderSettings.skybox = _skyboxes;
+        // Camera.main.clearFlags = CameraClearFlags.Skybox;
         _floor.GetComponent<MeshRenderer>().material = _VRfloor;
-        Camera.main.clearFlags = CameraClearFlags.Skybox;
+        _OVRSceneVolume.GetComponent<MeshRenderer>().material = _vrMaterial;
 
         _occlusionControl.isVR = true; // This should turn on the virtual hands
         // _occlusionControl.SwitchDepthOcclusionType(); // this turns off the depth occlusion
@@ -139,13 +126,6 @@ public class XRTransition : MonoBehaviour
         {
             item.SetActive(false);
         }
-
-        // _invisiblePlane.transform.GetChild(0).GetComponent<MeshRenderer>().sharedMaterial = _vrMaterial;
-        // // get the child of the child of the gameobject. This is pain
-        // _invisibleVolume.transform.GetChild(0).GetChild(0).GetComponent<MeshRenderer>().sharedMaterial = _vrMaterial;
-        // // rendererVolume.sharedMaterial = _VRMaterial;
-        // // rendererPlane.sharedMaterial = _VRMaterial;
-        // _effectMesh.MeshMaterial = _vrMaterial;
         
         foreach (var item in GameObject.FindGameObjectsWithTag("Wall"))
         {
@@ -160,7 +140,7 @@ public class XRTransition : MonoBehaviour
         {
             foreach (Transform child in item.transform)
             {
-                child.gameObject.GetComponent<MeshRenderer>().sharedMaterial = _customRoomboxMaterial;
+                child.gameObject.GetComponent<MeshRenderer>().sharedMaterial = _VRfurnitureMaterial;
             }
         }
     }
