@@ -48,8 +48,6 @@ public class RoomThingamajigApplier : MonoBehaviour
         floor.tag = "Floor";
         ceiling.layer = LayerMask.NameToLayer("Wall");
         ceiling.tag = "Ceiling";
-        globalMesh.layer = LayerMask.NameToLayer("Wall");
-        globalMesh.tag = "GlobalMesh";
 
         mrukObj.layer = LayerMask.NameToLayer("Wall");
         mrukObj.tag = "MainStructure";

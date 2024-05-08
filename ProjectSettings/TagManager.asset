@@ -17,6 +17,8 @@ TagManager:
   - Ceiling
   - Floor
   - MainStructure
+  - Bolt
+  - GlobalMesh
   layers:
   - Default
   - TransparentFX
