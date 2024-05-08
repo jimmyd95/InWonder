@@ -8,6 +8,7 @@ public class RoomThingamajigApplier : MonoBehaviour
     private GameObject mrukObj;
     private GameObject floor;
     private GameObject ceiling;
+    private GameObject globalMesh;
 
     private void Start() {
         StartCoroutine(GetRoomObjectAndApplyIDsCoroutine());
@@ -29,6 +30,10 @@ public class RoomThingamajigApplier : MonoBehaviour
         while (ceiling == null)
             ceiling = GameObject.Find("CEILING");
 
+        // this is to prevent the global mesh from being textured with the wall or furniture material
+        while (globalMesh == null)
+            globalMesh = GameObject.Find("GLOBAL_MESH");
+
         mrukObj = GameObject.FindObjectOfType<MRUKRoom>().gameObject;
         // assign the mrukObj as the MRUKRoom script gameobject, so I won't be able to temper with the "found script object" directly
         // tempFloor.GetComponentInParent<MRUKAnchor>().gameObject.layer = LayerMask.NameToLayer("Wall");
@@ -43,6 +48,8 @@ public class RoomThingamajigApplier : MonoBehaviour
         floor.tag = "Floor";
         ceiling.layer = LayerMask.NameToLayer("Wall");
         ceiling.tag = "Ceiling";
+        globalMesh.layer = LayerMask.NameToLayer("Wall");
+        globalMesh.tag = "GlobalMesh";
 
         mrukObj.layer = LayerMask.NameToLayer("Wall");
         mrukObj.tag = "MainStructure";
@@ -89,6 +96,9 @@ public class RoomThingamajigApplier : MonoBehaviour
                     item.gameObject.tag = "Floor";
                     // ApplyConvexColliders(item.gameObject, "Floor");
                 }
+                else if(item.name.Contains("GLOBAL_MESH")){
+                    item.gameObject.tag = "GlobalMesh";
+                }
                 else if(item.name.Contains("WALL_FACE") || item.name.Contains("INVISIBLE_WALL_FACE"))
                 {
                     item.gameObject.tag = "Wall";
@@ -110,6 +120,9 @@ public class RoomThingamajigApplier : MonoBehaviour
                 }
                 else if (item.Labels.Contains(OVRSceneManager.Classification.Floor.ToString())){
                     item.gameObject.tag = "Floor";
+                }
+                else if(item.Labels.Contains(OVRSceneManager.Classification.GlobalMesh.ToString())){
+                    item.gameObject.tag = "GlobalMesh";
                 }
                 else if (item.Labels.Contains(OVRSceneManager.Classification.WallFace.ToString()) || 
                     item.Labels.Contains(OVRSceneManager.Classification.InvisibleWallFace.ToString()))
@@ -162,6 +175,10 @@ public class RoomThingamajigApplier : MonoBehaviour
 
     public GameObject getCeiling(){
         return ceiling;
+    }
+
+    public GameObject getGlobalMesh(){
+        return globalMesh;
     }
 
 }

@@ -775,17 +775,17 @@ PrefabInstance:
     - target: {fileID: 817904774908136810, guid: 16b0201209c8d7b4186a0e353311afa3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.666
+      value: -1.5
       objectReference: {fileID: 0}
     - target: {fileID: 817904774908136810, guid: 16b0201209c8d7b4186a0e353311afa3,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 817904774908136810, guid: 16b0201209c8d7b4186a0e353311afa3,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.765
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 817904774908136810, guid: 16b0201209c8d7b4186a0e353311afa3,
         type: 3}
@@ -6305,8 +6305,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2253d75e3ddc644b8153409c62dd74e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlanePrefab: {fileID: 2021291303}
-  VolumePrefab: {fileID: 198041583}
+  PlanePrefab: {fileID: 409750792215036400, guid: 3c14a2a3c4050304d8341f5334de099d,
+    type: 3}
+  VolumePrefab: {fileID: 2699932671699546838, guid: 796b639ef80da1641997ff39679ed635,
+    type: 3}
   PrefabOverrides: []
   ActiveRoomsOnly: 1
   VerboseLogging: 0
@@ -12875,7 +12877,6 @@ MonoBehaviour:
   _vrMaterial: {fileID: 2100000, guid: 1513d3690aecf8b4eae68377e2a448a7, type: 2}
   _VRfurnitureMaterial: {fileID: 2100000, guid: ff8200a81758d8543894ba65d48c0544,
     type: 2}
-  _MRVolumeMaterial: {fileID: 2100000, guid: 67b8467f76edf3e498b14dfb6ecfdea0, type: 2}
   _portalVFX: {fileID: 1343846320}
   _spawningAndVFX: {fileID: 1540288084}
 --- !u!114 &764504951
@@ -26994,7 +26995,7 @@ PrefabInstance:
     - target: {fileID: 2296141232796561049, guid: cee191920b8eb41b0960b1082a393a3e,
         type: 3}
       propertyPath: Labels
-      value: 32775
+      value: 65535
       objectReference: {fileID: 0}
     - target: {fileID: 2296141232796561049, guid: cee191920b8eb41b0960b1082a393a3e,
         type: 3}
@@ -27119,10 +27120,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1620584016}
-    - targetCorrespondingSourceObject: {fileID: 5456522116536683071, guid: cee191920b8eb41b0960b1082a393a3e,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1620584019}
   m_SourcePrefab: {fileID: 100100000, guid: cee191920b8eb41b0960b1082a393a3e, type: 3}
 --- !u!1 &1620584015 stripped
 GameObject:
@@ -27154,30 +27151,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e76943ac7e7394f3e969f0c048b26639, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1620584019
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1620584015}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e76943ac7e7394f3e969f0c048b26639, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SpawnOnStart: 2
-  MeshMaterial: {fileID: 2100000, guid: 4920fec2708aa02478a0b4465d6107b8, type: 2}
-  BorderSize: 0
-  Colliders: 1
-  CutHoles: 0
-  castShadows: 1
-  hideMesh: 0
-  textureCoordinateModes:
-  - WallU: 0
-    WallV: 0
-    AnchorUV: 0
-  Labels: 32760
 --- !u!1 &1620611707
 GameObject:
   m_ObjectHideFlags: 0

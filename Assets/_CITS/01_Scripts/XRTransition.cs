@@ -11,12 +11,12 @@ public class XRTransition : MonoBehaviour
     [SerializeField] private Material _mrMaterial;
     [SerializeField] private Material _vrMaterial;
     [SerializeField] private Material _VRfurnitureMaterial;
-    [SerializeField] private Material _MRVolumeMaterial;
     [SerializeField] private ToyPortal _portalVFX;
     [SerializeField] private SpawningAndVFX _spawningAndVFX;
     private AudioSource mainMusic;
-    private GameObject _OVRSceneVolume;
-    private GameObject _floor;
+    private GameObject ovrSceneVolume;
+    private GameObject floor;
+    private GameObject globalMesh;
 
     // private EnvironmentDepthTextureProvider _depthTextureProvider;
 
@@ -27,19 +27,32 @@ public class XRTransition : MonoBehaviour
     private void Start() {
         StartCoroutine(findFloorTag());
         StartCoroutine(findOVRSceneVolume());
+        StartCoroutine(findGlobalMesh());
     }
 
     IEnumerator findFloorTag(){
-        yield return new WaitForSeconds(1.5f);
-        _floor = GameObject.FindGameObjectWithTag("Floor").transform.GetChild(0).gameObject; // find the floor but a bit later
-        Debug.Log("Found the floor here: " + _floor.name);
+        yield return new WaitForSeconds(1.1f);
+        floor = GameObject.FindGameObjectWithTag("Floor").transform.GetChild(0).gameObject; // find the floor but a bit later
+        Debug.Log("Found the floor here: " + floor.name);
     }
 
     IEnumerator findOVRSceneVolume(){
-        yield return new WaitForSeconds(1.5f);
-        _OVRSceneVolume = GameObject.FindAnyObjectByType<OVRSceneVolumeMeshFilter>().gameObject; // find the OVRSceneVolume so we can change its mateiral
-        _OVRSceneVolume.layer = LayerMask.NameToLayer("Wall"); // set it to wall layer so it can be seen through the portal
-        Debug.Log("Found the OVRSceneVolume here: " + _OVRSceneVolume.name);
+        yield return new WaitForSeconds(1.1f);
+        ovrSceneVolume = GameObject.FindAnyObjectByType<OVRSceneVolumeMeshFilter>().gameObject; // find the OVRSceneVolume so we can change its mateiral
+        // _OVRSceneVolume.layer = LayerMask.NameToLayer("Wall"); // set it to wall layer so it can be seen through the portal
+        Debug.Log("Found the OVRSceneVolume here: " + ovrSceneVolume.name);
+    }
+
+    // this is the scanned room GlobalMesh, instead of having it displayed, I want it to be hidden but still utilized
+    IEnumerator findGlobalMesh(){
+        yield return new WaitForSeconds(1.1f);
+        globalMesh = GameObject.FindGameObjectWithTag("GlobalMesh");
+        if (globalMesh)
+        {
+            globalMesh.layer = LayerMask.NameToLayer("Wall");
+            globalMesh.transform.GetChild(0).GetComponent<MeshRenderer>().material = _mrMaterial;
+        }
+
     }
 
     [Button("Back to MR")]
@@ -52,8 +65,8 @@ public class XRTransition : MonoBehaviour
         // Color tempColour = Color.black;
         // tempColour.a = 0;
         // Camera.main.backgroundColor = tempColour;
-        _floor.GetComponent<MeshRenderer>().material = _mrMaterial;
-        _OVRSceneVolume.GetComponent<MeshRenderer>().material = _MRVolumeMaterial;
+        floor.GetComponent<MeshRenderer>().material = _mrMaterial;
+        ovrSceneVolume.SetActive(true);
 
         // make virtual hands invisible
         _occlusionControl.isVR = false;
@@ -102,8 +115,8 @@ public class XRTransition : MonoBehaviour
         // an old fashion way to change skybox, just manually setting it with camera and passthrough
         // RenderSettings.skybox = _skyboxes;
         // Camera.main.clearFlags = CameraClearFlags.Skybox;
-        _floor.GetComponent<MeshRenderer>().material = _VRfloor;
-        _OVRSceneVolume.GetComponent<MeshRenderer>().material = _vrMaterial;
+        floor.GetComponent<MeshRenderer>().material = _VRfloor;
+        ovrSceneVolume.SetActive(false);
 
         _occlusionControl.isVR = true; // This should turn on the virtual hands
         // _occlusionControl.SwitchDepthOcclusionType(); // this turns off the depth occlusion
